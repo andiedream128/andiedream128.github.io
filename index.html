@@ -1,0 +1,1816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Miaoqing Jia</title>
+<meta name="description" content="Miaoqing Jia — Postdoctoral Associate at Weill Cornell Medical College. Health economist studying insurance coverage and medication access." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  /* ========================================================
+     PALETTE: SENCHA 煎茶
+     Pale celadon · warm tea brown · soft cream.
+     Tea-ceremony quiet, eastern, contemplative.
+     ======================================================== */
+  :root {
+    --bg: #e3e6d8;
+    --bg-deep: #d2d6c4;
+    --bg-card: #edefe4;
+    --ink: #2a2a23;
+    --ink-soft: #555548;
+    --ink-muted: #8e8e7e;
+    --accent: #6e5a3f;          /* tea brown */
+    --accent-deep: #523f2a;
+    --accent-soft: #b8a980;
+    --moss: #8a9476;
+    --line: rgba(42, 42, 35, 0.15);
+    --line-soft: rgba(42, 42, 35, 0.07);
+    --shadow: 0 1px 2px rgba(42,42,35,.04), 0 8px 24px rgba(42,42,35,.07);
+    --shadow-lg: 0 2px 4px rgba(42,42,35,.04), 0 24px 60px rgba(42,42,35,.10);
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --mono: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
+    --cn: 'Noto Serif SC', 'Fraunces', serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    font-size: 15px;
+    overflow-x: hidden;
+  }
+
+  /* ========================================================
+     ATMOSPHERE — subtle, not intrusive
+     ======================================================== */
+  /* Soft tea-ceremony grain — cool greenish neutral */
+  .grid-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.6;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.16 0 0 0 0 0.16 0 0 0 0 0.13 0 0 0 0.08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .wash {
+    position: fixed;
+    z-index: -1;
+    pointer-events: none;
+    width: 60vw;
+    height: 60vw;
+    max-width: 800px;
+    max-height: 800px;
+    border-radius: 50%;
+    filter: blur(80px);
+  }
+  .wash-1 {
+    top: -25vh; right: -15vw;
+    background: radial-gradient(circle at 40% 40%, rgba(110, 90, 63, 0.13), transparent 60%);
+  }
+  .wash-2 {
+    bottom: -25vh; left: -15vw;
+    background: radial-gradient(circle at 60% 50%, rgba(138, 148, 118, 0.16), transparent 60%);
+  }
+
+  /* ========================================================
+     NAV
+     ======================================================== */
+  nav {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    padding: 22px 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background: rgba(236, 237, 240, 0.85);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+  }
+  .logo {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 16.5px;
+    letter-spacing: 0.005em;
+    cursor: pointer;
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .logo .cn {
+    font-family: var(--cn);
+    font-size: 13.5px;
+    color: var(--accent);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+  }
+  .nav-links {
+    display: flex;
+    gap: 34px;
+    list-style: none;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--ink-soft);
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.25s;
+    padding: 4px 0;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-links a.active { color: var(--accent); }
+  .nav-links a.active::after { width: 22px; }
+
+  /* ========================================================
+     MAIN
+     ======================================================== */
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 56px 100px;
+    min-height: calc(100vh - 160px);
+  }
+  .page { display: none; }
+  .page.active { display: block; animation: fadeIn 0.45s ease; }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ========================================================
+     SECTION HEADERS
+     ======================================================== */
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+  .eyebrow .num {
+    font-family: var(--mono);
+    font-weight: 500;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+  }
+  .eyebrow .label {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    font-weight: 600;
+  }
+  .eyebrow .stroke {
+    flex: 1;
+    max-width: 100px;
+    height: 1px;
+    background: var(--line);
+  }
+  .page-title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 34px;
+    line-height: 1.2;
+    letter-spacing: -0.012em;
+    margin-bottom: 14px;
+    color: var(--ink);
+    max-width: 760px;
+  }
+  .page-subtitle {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    font-weight: 300;
+    margin-bottom: 56px;
+    max-width: 660px;
+  }
+
+  /* ========================================================
+     HOME — photo-led editorial
+     ======================================================== */
+  .hero {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 64px;
+    align-items: start;
+    padding: 8px 0 24px;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 26px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    width: 28px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .home-name {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 72px;
+    letter-spacing: -0.03em;
+    line-height: 0.95;
+    margin-bottom: 12px;
+  }
+  .home-name .accent { color: var(--accent); }
+  .home-name-cn {
+    font-family: var(--cn);
+    font-size: 17px;
+    color: var(--ink-soft);
+    margin-bottom: 28px;
+    letter-spacing: 0.22em;
+    font-weight: 400;
+  }
+
+  .hero-tagline {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 21px;
+    line-height: 1.45;
+    color: var(--ink-soft);
+    font-weight: 300;
+    margin-bottom: 28px;
+    max-width: 540px;
+    letter-spacing: -0.005em;
+  }
+
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 20px;
+    font-size: 12px;
+    color: var(--ink-muted);
+    padding: 16px 0;
+    border-top: 1px solid var(--line-soft);
+    border-bottom: 1px solid var(--line-soft);
+    letter-spacing: 0.04em;
+    font-family: var(--mono);
+    margin-bottom: 28px;
+    text-transform: uppercase;
+  }
+  .hero-meta span { display: flex; align-items: center; gap: 6px; }
+  .hero-meta .dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: pulse 2.6s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(1.4); }
+  }
+
+  /* CTA buttons */
+  .cta-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 18px;
+    background: var(--ink);
+    color: var(--bg-card);
+    text-decoration: none;
+    font-family: var(--sans);
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    border: 1px solid var(--ink);
+    transition: all 0.25s ease;
+    cursor: pointer;
+  }
+  .cta-button:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-1px);
+  }
+  .cta-button.outline {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid rgba(26,26,31,0.20);
+  }
+  .cta-button.outline:hover {
+    background: var(--ink);
+    color: var(--bg-card);
+    border-color: var(--ink);
+    transform: translateY(-1px);
+  }
+  .cta-button .arrow {
+    font-size: 0.95em;
+    opacity: 0.7;
+    transition: transform 0.25s, opacity 0.25s;
+    display: inline-block;
+  }
+  .cta-button:hover .arrow {
+    opacity: 1;
+    transform: translate(2px, -2px);
+  }
+
+  /* Profile photo */
+  .hero-photo { position: relative; }
+  .profile-photo {
+    aspect-ratio: 4 / 5;
+    background:
+      radial-gradient(circle at 25% 20%, rgba(255,255,255,0.4), transparent 55%),
+      linear-gradient(160deg, #d8dbc8 0%, #b8a980 100%);
+    border-radius: 3px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-lg);
+  }
+  .profile-photo::before {
+    content: '';
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    width: 36px;
+    height: 36px;
+    border-top: 2px solid var(--accent);
+    border-left: 2px solid var(--accent);
+  }
+  .profile-photo::after {
+    content: '';
+    position: absolute;
+    bottom: 14px;
+    right: 14px;
+    width: 36px;
+    height: 36px;
+    border-bottom: 2px solid var(--accent);
+    border-right: 2px solid var(--accent);
+  }
+  .profile-photo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .profile-photo .initials {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 110px;
+    color: rgba(26, 26, 31, 0.16);
+    letter-spacing: -0.05em;
+    line-height: 1;
+  }
+  .profile-photo-tag {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    font-family: var(--mono);
+    font-size: 9px;
+    color: rgba(26, 26, 31, 0.45);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+  .profile-photo-meta {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-family: var(--mono);
+    font-size: 9px;
+    color: rgba(26, 26, 31, 0.45);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  /* Home bottom — Currently + News */
+  .home-bottom {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 64px;
+    margin-top: 72px;
+    padding-top: 48px;
+    border-top: 1px solid var(--line);
+  }
+  .compact-list { list-style: none; }
+  .compact-item {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line-soft);
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 14px;
+    align-items: baseline;
+    transition: padding-left 0.25s ease;
+  }
+  .compact-item:hover { padding-left: 6px; }
+  .compact-item .num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    font-weight: 500;
+    padding-top: 2px;
+  }
+  .compact-item .lead {
+    font-family: var(--serif);
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.4;
+    margin-bottom: 3px;
+  }
+  .compact-item .sub {
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+
+  /* FIELD CARD — designed info plaque */
+  .field-card {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 28px 26px 26px;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+  }
+  .field-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--accent);
+  }
+  .field-card-header {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .field-card-header::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+  .field-row {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .field-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .field-row .key {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 4px;
+    display: block;
+  }
+  .field-row .val {
+    font-family: var(--serif);
+    font-size: 16px;
+    color: var(--ink);
+    line-height: 1.35;
+    font-weight: 500;
+  }
+  .field-row .val .accent-text { color: var(--accent); }
+  .field-row .val.year {
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+
+  /* STATS — modern editorial */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 64px;
+    padding: 36px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    gap: 0;
+  }
+  .stat {
+    text-align: left;
+    padding: 0 28px;
+    border-right: 1px solid var(--line-soft);
+    position: relative;
+  }
+  .stat:first-child { padding-left: 0; }
+  .stat:last-child { border-right: none; }
+  .stat-num {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 42px;
+    line-height: 1;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+  }
+  .stat-num .suffix {
+    font-size: 22px;
+    color: var(--accent);
+    font-style: italic;
+  }
+  .stat-label {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    font-weight: 500;
+  }
+
+  /* HOME blocks */
+  .block {
+    margin-top: 64px;
+    padding-top: 40px;
+    border-top: 1px solid var(--line-soft);
+  }
+  .block-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 24px;
+  }
+  .block-head .title {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+  }
+  .block-head .meta {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    font-weight: 500;
+  }
+
+  .interests-list {
+    list-style: none;
+    columns: 2;
+    column-gap: 40px;
+  }
+  .interests-list li {
+    padding: 10px 0;
+    font-size: 14px;
+    color: var(--ink-soft);
+    border-bottom: 1px solid var(--line-soft);
+    break-inside: avoid;
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    transition: color 0.25s, padding-left 0.25s;
+  }
+  .interests-list li::before {
+    content: '+';
+    color: var(--accent);
+    font-family: var(--mono);
+    font-weight: 500;
+    flex-shrink: 0;
+    font-size: 12px;
+  }
+  .interests-list li:hover { color: var(--ink); padding-left: 4px; }
+
+  .news-list { list-style: none; }
+  .news-item {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 28px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line-soft);
+    font-size: 14px;
+    transition: padding-left 0.25s ease;
+  }
+  .news-item:hover { padding-left: 8px; }
+  .news-date {
+    font-family: var(--mono);
+    color: var(--accent);
+    font-size: 11.5px;
+    letter-spacing: 0.06em;
+    font-weight: 500;
+    padding-top: 2px;
+  }
+  .news-text { color: var(--ink); line-height: 1.7; }
+  .news-text strong { font-weight: 600; color: var(--ink); }
+
+  /* ========================================================
+     RESEARCH
+     ======================================================== */
+  .research-list { margin-top: 8px; }
+  .research-item {
+    padding: 36px 0;
+    border-bottom: 1px solid var(--line-soft);
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 32px;
+    transition: padding-left 0.4s ease;
+    align-items: start;
+  }
+  .research-item:hover { padding-left: 12px; }
+  .research-icon {
+    width: 64px;
+    height: 64px;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    background: var(--bg-card);
+    transition: all 0.4s ease;
+    position: relative;
+  }
+  .research-item:hover .research-icon {
+    background: var(--accent);
+    color: var(--bg-card);
+  }
+  .research-icon-num {
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    width: 22px;
+    height: 22px;
+    background: var(--bg);
+    border: 1px solid var(--accent);
+    border-radius: 50%;
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+  }
+  .research-title {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    letter-spacing: -0.005em;
+  }
+  .research-desc {
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    line-height: 1.75;
+    margin-bottom: 14px;
+  }
+  .research-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.05em;
+    padding: 4px 10px;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    color: var(--ink-soft);
+    background: var(--bg-card);
+  }
+
+  /* ========================================================
+     ABOUT
+     ======================================================== */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 64px;
+    align-items: start;
+  }
+  .about-text p {
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--ink);
+    font-weight: 300;
+    margin-bottom: 20px;
+  }
+  .about-text p:first-of-type::first-letter {
+    font-family: var(--serif);
+    font-size: 56px;
+    line-height: 0.95;
+    float: left;
+    margin: 6px 12px 0 0;
+    color: var(--accent);
+    font-weight: 400;
+  }
+  .pull-quote {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 19px;
+    color: var(--accent);
+    border-left: 2px solid var(--accent);
+    padding: 8px 0 8px 22px;
+    margin: 28px 0;
+    font-weight: 400;
+    line-height: 1.55;
+  }
+  .timeline {
+    position: relative;
+    padding-left: 24px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    bottom: 8px;
+    left: 4px;
+    width: 1px;
+    background: var(--line);
+  }
+  .timeline-block-title {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-muted);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-weight: 500;
+  }
+  .timeline-item {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line-soft);
+    position: relative;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -24px;
+    top: 22px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 1.5px solid var(--accent);
+    transition: background 0.3s;
+  }
+  .timeline-item:hover::before { background: var(--accent); }
+  .timeline-item:last-child { border-bottom: none; }
+  .timeline-year {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    margin-bottom: 4px;
+    letter-spacing: 0.06em;
+    font-weight: 500;
+  }
+  .timeline-role {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 1px;
+    line-height: 1.4;
+  }
+  .timeline-place {
+    font-size: 12.5px;
+    color: var(--ink-muted);
+    line-height: 1.45;
+  }
+
+  /* ========================================================
+     PUBLICATIONS
+     ======================================================== */
+  .pub-section { margin-bottom: 48px; }
+  .pub-section-title {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 8px;
+  }
+  .pub-section-title .label {
+    font-family: var(--serif);
+    font-size: 19px;
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+  }
+  .pub-section-title .count {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+  }
+  .pub-section-title .stroke {
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+    margin-left: 8px;
+  }
+  .pub-item {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line-soft);
+    display: grid;
+    grid-template-columns: 32px 1fr auto;
+    gap: 18px;
+    align-items: baseline;
+    transition: padding 0.3s;
+  }
+  .pub-item:hover { padding-left: 8px; }
+  .pub-item:last-child { border-bottom: none; }
+  .pub-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .pub-content { max-width: 720px; }
+  .pub-title {
+    font-family: var(--serif);
+    font-size: 16.5px;
+    font-weight: 500;
+    line-height: 1.45;
+    margin-bottom: 4px;
+  }
+  .pub-title a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.25s;
+    background-image: linear-gradient(var(--accent), var(--accent));
+    background-size: 0 1px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    transition: background-size 0.4s ease, color 0.25s;
+    padding-bottom: 1px;
+  }
+  .pub-title a:hover {
+    color: var(--accent);
+    background-size: 100% 1px;
+  }
+  .pub-title a::after {
+    content: ' ↗';
+    color: var(--accent);
+    font-size: 0.78em;
+    opacity: 0.6;
+    margin-left: 2px;
+    display: inline-block;
+    transition: transform 0.25s, opacity 0.25s;
+  }
+  .pub-title a:hover::after {
+    opacity: 1;
+    transform: translate(2px, -2px);
+  }
+  .pub-authors {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+  .pub-authors strong { color: var(--ink); font-weight: 700; }
+  .pub-status {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    color: var(--accent-deep);
+    background: rgba(110, 90, 63, 0.14);
+    padding: 4px 10px;
+    border-radius: 2px;
+    white-space: nowrap;
+    font-weight: 500;
+  }
+
+  /* ========================================================
+     CURRENT — clean editorial cards
+     ======================================================== */
+  .working-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+  .working-card {
+    background: var(--bg-card);
+    border: 1px solid var(--line-soft);
+    border-radius: 4px;
+    padding: 32px;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .working-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--accent);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.5s ease;
+  }
+  .working-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+  }
+  .working-card:hover::before { transform: scaleY(1); }
+  .working-card .corner-mark {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-muted);
+    letter-spacing: 0.08em;
+  }
+  .working-status {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-weight: 500;
+  }
+  .working-status .live-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: pulse 2.4s infinite;
+  }
+  .working-title {
+    font-family: var(--serif);
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 1.35;
+    margin-bottom: 10px;
+  }
+  .working-desc {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+  }
+
+  /* ========================================================
+     BEYOND — refined picture cards
+     ======================================================== */
+  .beyond-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+  .beyond-card {
+    background: var(--bg-card);
+    border: 1px solid var(--line-soft);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    box-shadow: var(--shadow);
+  }
+  .beyond-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+  .beyond-visual {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .beyond-visual.cats { background: linear-gradient(150deg, #b8856a 0%, #6e4d3a 100%); }     /* warm tea/clay */
+  .beyond-visual.travel { background: linear-gradient(150deg, #9aa580 0%, #5e6a4a 100%); }   /* deep celadon */
+  .beyond-visual.fun { background: linear-gradient(150deg, #c8b078 0%, #8a7544 100%); }      /* tea gold */
+  .beyond-visual::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 25% 20%, rgba(255,255,255,0.16), transparent 55%);
+    pointer-events: none;
+  }
+  .beyond-visual svg {
+    width: 100px;
+    height: 100px;
+    color: rgba(252,252,253,0.95);
+    filter: drop-shadow(0 4px 14px rgba(0,0,0,0.18));
+    transition: transform 0.6s ease;
+    z-index: 1;
+  }
+  .beyond-card:hover .beyond-visual svg { transform: scale(1.06) rotate(-3deg); }
+  .beyond-content { padding: 24px 26px 28px; }
+  .beyond-eyebrow {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  .beyond-title {
+    font-family: var(--serif);
+    font-size: 19px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+  .beyond-text { font-size: 13.5px; color: var(--ink-soft); line-height: 1.7; }
+  .beyond-text em { color: var(--accent); font-style: italic; }
+
+  /* ========================================================
+     CONTACT
+     ======================================================== */
+  .contact-block { padding: 24px 0 8px; }
+  .contact-row {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 24px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line-soft);
+    align-items: baseline;
+  }
+  .contact-label {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    font-weight: 500;
+  }
+  .contact-value {
+    font-family: var(--serif);
+    font-size: 17px;
+    color: var(--ink);
+  }
+  .contact-value a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border 0.25s;
+  }
+  .contact-value a:hover { border-bottom-color: var(--accent); }
+  .email-obf { font-family: var(--serif); color: var(--ink); letter-spacing: 0.01em; }
+  .email-obf .at { color: var(--accent); font-style: italic; font-size: 0.85em; padding: 0 2px; }
+  .contact-note {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 16px;
+    color: var(--ink-soft);
+    margin-top: 36px;
+    line-height: 1.65;
+  }
+
+  footer {
+    text-align: center;
+    padding: 30px 56px;
+    border-top: 1px solid var(--line-soft);
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-muted);
+    letter-spacing: 0.12em;
+  }
+  footer .seal {
+    color: var(--accent);
+    font-family: var(--cn);
+    margin: 0 8px;
+    letter-spacing: 0.06em;
+  }
+
+  /* ========================================================
+     SCROLL REVEAL — gentle fade
+     ======================================================== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ========================================================
+     MOBILE
+     ======================================================== */
+  @media (max-width: 880px) {
+    nav { padding: 16px 24px; flex-wrap: wrap; gap: 12px; }
+    .nav-links { gap: 14px 22px; flex-wrap: wrap; }
+    main { padding: 40px 24px 64px; }
+    .page-title { font-size: 26px; }
+    .hero { grid-template-columns: 1fr; gap: 40px; }
+    .hero-photo { max-width: 280px; }
+    .home-name { font-size: 48px; }
+    .hero-tagline { font-size: 18px; }
+    .home-bottom { grid-template-columns: 1fr; gap: 40px; margin-top: 56px; }
+    .interests-list { columns: 1; }
+    .working-grid { grid-template-columns: 1fr; }
+    .about-grid { grid-template-columns: 1fr; gap: 32px; }
+    .beyond-grid { grid-template-columns: 1fr; }
+    .pub-item { grid-template-columns: 24px 1fr; }
+    .pub-status { grid-column: 2; margin-top: 4px; justify-self: start; }
+    .news-item { grid-template-columns: 1fr; gap: 4px; }
+    .contact-row { grid-template-columns: 1fr; gap: 4px; }
+    .research-item { grid-template-columns: 60px 1fr; gap: 18px; }
+    .research-icon { width: 52px; height: 52px; }
+    .cta-row { gap: 8px; }
+    .cta-button { font-size: 10.5px; padding: 10px 14px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+<div class="wash wash-1"></div>
+<div class="wash wash-2"></div>
+
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="ico-medicare" viewBox="0 0 48 48">
+      <circle cx="18" cy="24" r="11" fill="none" stroke="currentColor" stroke-width="1.4"/>
+      <circle cx="30" cy="24" r="11" fill="none" stroke="currentColor" stroke-width="1.4"/>
+      <circle cx="24" cy="24" r="2" fill="currentColor"/>
+    </symbol>
+    <symbol id="ico-ml" viewBox="0 0 48 48">
+      <path d="M6 38 L42 38 M6 38 L6 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+      <circle cx="13" cy="32" r="1.6" fill="currentColor"/>
+      <circle cx="20" cy="26" r="1.6" fill="currentColor"/>
+      <circle cx="27" cy="22" r="1.6" fill="currentColor"/>
+      <circle cx="34" cy="14" r="1.6" fill="currentColor"/>
+      <circle cx="17" cy="20" r="1.6" fill="currentColor" opacity="0.55"/>
+      <circle cx="29" cy="32" r="1.6" fill="currentColor" opacity="0.55"/>
+      <path d="M11 33 Q 22 22 36 14" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" fill="none" stroke-dasharray="2 2" opacity="0.7"/>
+    </symbol>
+    <symbol id="ico-pharma" viewBox="0 0 48 48">
+      <rect x="9" y="18" width="30" height="12" rx="6" fill="none" stroke="currentColor" stroke-width="1.4"/>
+      <path d="M24 18 L24 30" stroke="currentColor" stroke-width="1.4"/>
+      <rect x="9" y="18" width="15" height="12" rx="6" fill="currentColor" opacity="0.18"/>
+      <circle cx="33" cy="24" r="1" fill="currentColor"/>
+      <circle cx="36" cy="22" r="0.7" fill="currentColor" opacity="0.6"/>
+    </symbol>
+    <symbol id="ico-markets" viewBox="0 0 48 48">
+      <path d="M6 40 L42 40" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+      <rect x="10" y="28" width="5" height="12" fill="currentColor" opacity="0.85"/>
+      <rect x="18" y="22" width="5" height="18" fill="currentColor" opacity="0.55"/>
+      <rect x="26" y="16" width="5" height="24" fill="currentColor" opacity="0.85"/>
+      <rect x="34" y="24" width="5" height="16" fill="currentColor" opacity="0.55"/>
+      <path d="M12 26 Q 20 14 28 14 T 38 22" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.9"/>
+    </symbol>
+    <symbol id="ico-cat" viewBox="0 0 100 100">
+      <path d="M22 60 Q 18 78 34 80 Q 50 82 64 78 Q 80 74 80 60 Q 80 44 70 38 Q 58 32 46 36 Q 30 42 22 60 Z" fill="currentColor"/>
+      <path d="M30 38 L26 24 L42 32 Z" fill="currentColor"/>
+      <path d="M62 36 L70 22 L76 38 Z" fill="currentColor"/>
+      <path d="M32 35 L31 28 L37 32 Z" fill="rgba(0,0,0,0.18)"/>
+      <path d="M68 34 L70 27 L73 35 Z" fill="rgba(0,0,0,0.18)"/>
+      <ellipse cx="44" cy="54" rx="2.2" ry="3" fill="#1a1411"/>
+      <ellipse cx="60" cy="54" rx="2.2" ry="3" fill="#1a1411"/>
+      <path d="M40 65 L 28 63 M40 67 L 28 68 M62 65 L 74 63 M62 67 L 74 68" stroke="rgba(0,0,0,0.4)" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+      <path d="M50 62 L52 64 L48 64 Z" fill="#1a1411"/>
+      <path d="M50 64 Q 47 67 45 65 M50 64 Q 53 67 55 65" stroke="#1a1411" stroke-width="0.9" fill="none" stroke-linecap="round"/>
+      <path d="M24 62 Q 8 56 12 78" stroke="currentColor" stroke-width="6" fill="none" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="ico-travel" viewBox="0 0 100 100">
+      <circle cx="50" cy="58" r="26" fill="none" stroke="currentColor" stroke-width="2.2"/>
+      <ellipse cx="50" cy="58" rx="26" ry="9" fill="none" stroke="currentColor" stroke-width="1.4" opacity="0.6"/>
+      <path d="M50 32 L 50 84" stroke="currentColor" stroke-width="1.4" opacity="0.6"/>
+      <path d="M50 18 C 44 18 41 22 41 28 C 41 35 50 44 50 44 C 50 44 59 35 59 28 C 59 22 56 18 50 18 Z" fill="currentColor"/>
+      <circle cx="50" cy="28" r="2.6" fill="rgba(0,0,0,0.35)"/>
+      <path d="M28 50 Q 50 36 72 60" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2 4" fill="none" stroke-linecap="round" opacity="0.85"/>
+      <circle cx="78" cy="28" r="1.8" fill="currentColor" opacity="0.8"/>
+    </symbol>
+    <symbol id="ico-flower" viewBox="0 0 100 100">
+      <path d="M36 84 L 38 70 Q 50 66 62 70 L 64 84 Z" fill="currentColor" opacity="0.85"/>
+      <path d="M50 70 L 50 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <circle cx="50" cy="22" r="6" fill="currentColor"/>
+      <circle cx="50" cy="22" r="2.4" fill="rgba(0,0,0,0.3)"/>
+      <path d="M50 50 Q 32 46 26 32" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      <ellipse cx="26" cy="32" rx="6" ry="3" fill="currentColor" transform="rotate(-30 26 32)"/>
+      <path d="M50 58 Q 70 50 76 38" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      <circle cx="76" cy="38" r="3" fill="currentColor" opacity="0.85"/>
+      <circle cx="68" cy="44" r="1.8" fill="currentColor" opacity="0.7"/>
+      <path d="M30 84 L 70 84" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+  </defs>
+</svg>
+
+<nav>
+  <div class="logo" data-page="home">
+    Miaoqing Jia <span class="cn">苗青</span>
+  </div>
+  <ul class="nav-links">
+    <li><a data-page="home" class="active">Home</a></li>
+    <li><a data-page="about">About</a></li>
+    <li><a data-page="research">Research</a></li>
+    <li><a data-page="publications">Publications</a></li>
+    <li><a data-page="current">Current</a></li>
+    <li><a data-page="beyond">Beyond</a></li>
+    <li><a data-page="contact">Contact</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <!-- HOME -->
+  <div class="page active" id="home">
+
+    <section class="hero">
+      <div class="hero-info">
+        <div class="hero-eyebrow">Postdoctoral Associate · Weill Cornell Medicine</div>
+        <h1 class="home-name">Miaoqing<br/>Jia<span class="accent">.</span></h1>
+        <div class="home-name-cn">苗 青</div>
+        <p class="hero-tagline">Health economist studying insurance coverage, medication access, and the policies that decide who gets care.</p>
+        <div class="hero-meta">
+          <span><span class="dot"></span> New York, NY</span>
+          <span>PhD · BU 2022</span>
+          <span>BS · Union 2016</span>
+        </div>
+        <div class="cta-row">
+          <a href="mailto:mij4018@med.cornell.edu" class="cta-button">Email <span class="arrow">↗</span></a>
+          <a href="#" class="cta-button outline">CV (PDF) <span class="arrow">↗</span></a>
+          <a href="#" class="cta-button outline">Google Scholar <span class="arrow">↗</span></a>
+        </div>
+      </div>
+
+      <!-- HOW TO ADD A PHOTO:
+           Replace this entire .profile-photo block with:
+           <div class="profile-photo"><img src="photo.jpg" alt="Miaoqing Jia"/></div>
+           Or keep the placeholder until you have a photo. -->
+      <div class="hero-photo">
+        <div class="profile-photo">
+          <span class="profile-photo-meta">2025</span>
+          <div class="initials">MJ</div>
+          <span class="profile-photo-tag">Portrait · Add photo</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-bottom">
+      <div>
+        <div class="block-head">
+          <span class="title">Currently</span>
+          <span class="meta">Selected work</span>
+        </div>
+        <ul class="compact-list">
+          <li class="compact-item">
+            <span class="num">/01</span>
+            <div>
+              <div class="lead">D-SNPs and dual eligibles with serious mental illness</div>
+              <div class="sub">NIMH R01 · claims-based analysis comparing FIDE, HIDE, and coordination-only D-SNPs</div>
+            </div>
+          </li>
+          <li class="compact-item">
+            <span class="num">/02</span>
+            <div>
+              <div class="lead">GLP-1 access across the commercial-to-Medicare transition</div>
+              <div class="sub">Event study on coverage transitions, formularies, and continuity of therapy</div>
+            </div>
+          </li>
+          <li class="compact-item">
+            <span class="num">/03</span>
+            <div>
+              <div class="lead">Chronic Condition Special Needs Plans (C-SNPs)</div>
+              <div class="sub">Enrollment, healthcare utilization, and quality outcomes</div>
+            </div>
+          </li>
+          <li class="compact-item">
+            <span class="num">/04</span>
+            <div>
+              <div class="lead">FDA-cleared AI medical devices: adoption and access</div>
+              <div class="sub">Diffusion patterns, insurance coverage, and reimbursement</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <div class="block-head">
+          <span class="title">News</span>
+          <span class="meta">Recent</span>
+        </div>
+        <ul class="news-list">
+          <li class="news-item">
+            <span class="news-date">2026</span>
+            <span class="news-text">New work in progress on <strong>GLP-1 access</strong> and <strong>C-SNPs</strong>.</span>
+          </li>
+          <li class="news-item">
+            <span class="news-date">2026</span>
+            <span class="news-text"><strong>Fluoroquinolone Prescribing</strong> under review.</span>
+          </li>
+          <li class="news-item">
+            <span class="news-date">2026</span>
+            <span class="news-text"><strong>Antibiotic Resistance, Drug Prices, and Entry</strong> under review.</span>
+          </li>
+          <li class="news-item">
+            <span class="news-date">APR 2025</span>
+            <span class="news-text">Joined Weill Cornell Medicine as a Postdoctoral Associate.</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ABOUT -->
+  <div class="page" id="about">
+    <div class="eyebrow">
+      <span class="num">/01</span>
+      <span class="label">About</span>
+      <span class="stroke"></span>
+    </div>
+    <h2 class="page-title">A health economist working at the intersection of policy, data, and care.</h2>
+    <p class="page-subtitle">Trained in applied microeconomics, industrial organization, and causal inference.</p>
+
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I joined the Department of Population Health Sciences at Weill Cornell Medical College in April 2025 after completing my PhD in Economics at Boston University. My research examines how insurance coverage policies — particularly Medicare Advantage, dual eligible special needs plans (D-SNPs), and Part D — affect medication access and health outcomes for populations with complex needs.</p>
+        <p>Most of my current work uses linked Medicare–Medicaid claims data and the Inovalon dataset to study D-SNP integration models, prescribing responses to regulatory signals, and treatment access for behavioral health populations. I'm supported by an NIMH R01 (MPI: McGinty and Zhang), where I lead the claims-based quantitative analysis on D-SNP enrollment and outcomes among dual eligibles with serious mental illness.</p>
+
+        <div class="pull-quote">Insurance design isn't a backdrop — it's an intervention that decides who gets care.</div>
+
+        <p>I'm preparing a K99/R00 application on insurance coverage transitions and medication access. My doctoral work, in a different vein, developed theoretical models of pharmaceutical market structures and antibiotic resistance.</p>
+      </div>
+      <aside>
+        <div class="timeline">
+          <div class="timeline-block-title">Education</div>
+          <div class="timeline-item">
+            <div class="timeline-year">2025 — Present</div>
+            <div class="timeline-role">Postdoctoral Associate</div>
+            <div class="timeline-place">Weill Cornell Medical College</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2016 — 2022</div>
+            <div class="timeline-role">PhD, Economics</div>
+            <div class="timeline-place">Boston University</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2013 — 2016</div>
+            <div class="timeline-role">B.S., Economics & Mathematics</div>
+            <div class="timeline-place">Union College</div>
+          </div>
+        </div>
+
+        <div class="timeline" style="margin-top: 36px;">
+          <div class="timeline-block-title">Honors</div>
+          <div class="timeline-item">
+            <div class="timeline-year">2016 — 2022</div>
+            <div class="timeline-role">Dean's Fellowship</div>
+            <div class="timeline-place">Boston University</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2017 — 2021</div>
+            <div class="timeline-role">Summer Stipends</div>
+            <div class="timeline-place">Department of Economics, Boston University</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2016</div>
+            <div class="timeline-role">President's Commission Senior Scholarly Activity Award</div>
+            <div class="timeline-place">Union College</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2016</div>
+            <div class="timeline-role">Martin Terry Resch Prize</div>
+            <div class="timeline-place">Mathematics, Union College</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2016</div>
+            <div class="timeline-role">Omicron Delta Epsilon</div>
+            <div class="timeline-place">Economics Honor Society</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2016</div>
+            <div class="timeline-role">Phi Beta Kappa</div>
+            <div class="timeline-place">Union College</div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- RESEARCH -->
+  <div class="page" id="research">
+    <div class="eyebrow">
+      <span class="num">/02</span>
+      <span class="label">Research</span>
+      <span class="stroke"></span>
+    </div>
+    <h2 class="page-title">Four areas I keep returning to.</h2>
+    <p class="page-subtitle">My work connects insurance coverage design, pharmaceutical policy, and the health of populations whose care is fragmented across systems.</p>
+
+    <div class="research-list">
+      <div class="research-item">
+        <div class="research-icon">
+          <span class="research-icon-num">01</span>
+          <svg width="32" height="32"><use href="#ico-medicare"/></svg>
+        </div>
+        <div>
+          <h3 class="research-title">Medicare program design and dual eligibility</h3>
+          <p class="research-desc">How does the structure of Medicare Advantage and integrated D-SNP enrollment shape healthcare quality and utilization for dual eligible beneficiaries with complex behavioral health needs? Using 20% Medicare claims samples, I evaluate FIDE, HIDE, coordination-only D-SNPs, look-alike plans, non-SNP MA, and traditional fee-for-service.</p>
+          <div class="research-tags">
+            <span class="tag">D-SNP integration</span>
+            <span class="tag">Dual eligibles</span>
+            <span class="tag">Serious mental illness</span>
+          </div>
+        </div>
+      </div>
+      <div class="research-item">
+        <div class="research-icon">
+          <span class="research-icon-num">02</span>
+          <svg width="32" height="32"><use href="#ico-ml"/></svg>
+        </div>
+        <div>
+          <h3 class="research-title">Machine learning for population health</h3>
+          <p class="research-desc">Applying growth mixture modeling, XGBoost, and unsupervised clustering to large claims, EHR, and geographic datasets — characterizing patient trajectories, predicting acute care use from social needs screening, and identifying neighborhood archetypes for targeted intervention.</p>
+          <div class="research-tags">
+            <span class="tag">Predictive modeling</span>
+            <span class="tag">SDOH</span>
+            <span class="tag">Population analytics</span>
+          </div>
+        </div>
+      </div>
+      <div class="research-item">
+        <div class="research-icon">
+          <span class="research-icon-num">03</span>
+          <svg width="32" height="32"><use href="#ico-pharma"/></svg>
+        </div>
+        <div>
+          <h3 class="research-title">Pharmaceutical policy and prescriber response</h3>
+          <p class="research-desc">Using comparative interrupted time series and Medicare Part D Prescriber files, I examine how regulatory signals — FDA black box warnings, scope-of-practice expansions — actually change prescribing behavior for older adults. Recent work covers fluoroquinolones and the rapid rise of GLP-1 prescribing.</p>
+          <div class="research-tags">
+            <span class="tag">Part D</span>
+            <span class="tag">FDA policy</span>
+            <span class="tag">GLP-1</span>
+          </div>
+        </div>
+      </div>
+      <div class="research-item">
+        <div class="research-icon">
+          <span class="research-icon-num">04</span>
+          <svg width="32" height="32"><use href="#ico-markets"/></svg>
+        </div>
+        <div>
+          <h3 class="research-title">Economics of pharmaceutical markets</h3>
+          <p class="research-desc">My doctoral work developed theoretical models of how pharmaceutical market structures affect antibiotic resistance and drug innovation — examining pricing, patents, and usage restrictions as policy levers to balance resistance mitigation with innovation incentives.</p>
+          <div class="research-tags">
+            <span class="tag">Industrial organization</span>
+            <span class="tag">Antibiotic resistance</span>
+            <span class="tag">Externalities</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PUBLICATIONS -->
+  <div class="page" id="publications">
+    <div class="eyebrow">
+      <span class="num">/03</span>
+      <span class="label">Publications</span>
+      <span class="stroke"></span>
+    </div>
+    <h2 class="page-title">Papers and working drafts.</h2>
+    <p class="page-subtitle">Under review, in progress, in preparation.</p>
+
+    <div class="pub-section">
+      <h3 class="pub-section-title">
+        <span class="label">Under Review</span>
+        <span class="count">/ 03</span>
+        <span class="stroke"></span>
+      </h3>
+      <!-- HOW TO ADD A PDF LINK:
+           Wrap the paper title text in <a href="LINK" target="_blank" rel="noopener">…</a>
+           For Dropbox: change the link's ?dl=0 ending to ?raw=1
+           For PDFs hosted alongside this site: use href="papers/yourfile.pdf"
+           Papers without a link (still in prep) just show as plain text. -->
+      <div class="pub-item">
+        <div class="pub-num">01</div>
+        <div class="pub-content">
+          <h4 class="pub-title"><a href="https://www.dropbox.com/REPLACE_WITH_LINK?raw=1" target="_blank" rel="noopener">Fluoroquinolone Prescribing to Older Adults Following FDA Black Box Warnings: A Comparative Analysis</a></h4>
+          <p class="pub-authors"><strong>Jia, M.</strong>, Flory, J., McGinty, E.E., Rosen, T., & Zhang, Y.</p>
+        </div>
+        <span class="pub-status">2026</span>
+      </div>
+      <div class="pub-item">
+        <div class="pub-num">02</div>
+        <div class="pub-content">
+          <h4 class="pub-title"><a href="https://www.dropbox.com/REPLACE_WITH_LINK?raw=1" target="_blank" rel="noopener">Antibiotic Resistance, Drug Prices, and Entry</a></h4>
+          <p class="pub-authors"><strong>Jia, M.</strong>, & Ma, C.-T. A.</p>
+        </div>
+        <span class="pub-status">2026</span>
+      </div>
+      <div class="pub-item">
+        <div class="pub-num">03</div>
+        <div class="pub-content">
+          <h4 class="pub-title"><a href="https://www.dropbox.com/REPLACE_WITH_LINK?raw=1" target="_blank" rel="noopener">Social Determinants of Health Clustering Analysis Identifies Five Neighborhood Archetypes for Cardiovascular Disease Prevention in New York City</a></h4>
+          <p class="pub-authors">Zhang, Y., Li, H., <strong>Jia, M.</strong>, et al.</p>
+        </div>
+        <span class="pub-status">2026</span>
+      </div>
+    </div>
+
+    <div class="pub-section">
+      <h3 class="pub-section-title">
+        <span class="label">Working Papers</span>
+        <span class="count">/ 02</span>
+        <span class="stroke"></span>
+      </h3>
+      <div class="pub-item">
+        <div class="pub-num">01</div>
+        <div class="pub-content">
+          <h4 class="pub-title"><a href="https://www.dropbox.com/REPLACE_WITH_LINK?raw=1" target="_blank" rel="noopener">Nurse Practitioner and Physician Assistant Prescribing of GLP-1 Agonists to Older Adults, 2013–2023</a></h4>
+          <p class="pub-authors"><strong>Jia, M.</strong>, & Zhang, Y., et al.</p>
+        </div>
+        <span class="pub-status">2026</span>
+      </div>
+      <div class="pub-item">
+        <div class="pub-num">02</div>
+        <div class="pub-content">
+          <h4 class="pub-title"><a href="https://www.dropbox.com/REPLACE_WITH_LINK?raw=1" target="_blank" rel="noopener">Addressing the Externalities of Medicine Overconsumption</a></h4>
+          <p class="pub-authors"><strong>Jia, M.</strong></p>
+        </div>
+        <span class="pub-status">2025</span>
+      </div>
+    </div>
+
+    <div class="pub-section">
+      <h3 class="pub-section-title">
+        <span class="label">In Preparation</span>
+        <span class="count">/ 03</span>
+        <span class="stroke"></span>
+      </h3>
+      <div class="pub-item">
+        <div class="pub-num">01</div>
+        <div class="pub-content">
+          <h4 class="pub-title">Association between Enrollment in Integrated Dual Eligible Special Needs Plans and Quality and Utilization of Healthcare among Dual Eligibles with Serious Mental Illnesses</h4>
+          <p class="pub-authors">Zhang, Y., McGinty, E.E., <strong>Jia, M.</strong>, et al.</p>
+        </div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-num">02</div>
+        <div class="pub-content">
+          <h4 class="pub-title">Using Machine Learning to Characterize Patient Trajectories after Hospice Live Discharge among Medicare Beneficiaries</h4>
+          <p class="pub-authors">Li, H., <strong>Jia, M.</strong>, & Zhang, Y.</p>
+        </div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-num">03</div>
+        <div class="pub-content">
+          <h4 class="pub-title">Predicting Acute Care Use Using Social Needs Screening Data among Patients of a Large Safety Net Health System</h4>
+          <p class="pub-authors">Zhang, Y., Li, H., <strong>Jia, M.</strong>, et al.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CURRENT -->
+  <div class="page" id="current">
+    <div class="eyebrow">
+      <span class="num">/04</span>
+      <span class="label">Current</span>
+      <span class="stroke"></span>
+    </div>
+    <h2 class="page-title">What's on my desk right now.</h2>
+    <p class="page-subtitle">Active grants, ongoing analyses, and what's coming next.</p>
+
+    <div class="working-grid">
+      <div class="working-card">
+        <span class="corner-mark">/01</span>
+        <div class="working-status"><span class="live-dot"></span>Active · NIMH R01</div>
+        <h3 class="working-title">Integrated D-SNPs and healthcare quality for dual eligibles with SMI</h3>
+        <p class="working-desc">Leading the claims-based quantitative analysis comparing FIDE, HIDE, coordination-only D-SNPs, look-alike plans, non-SNP MA, and traditional fee-for-service. The first outcome evaluation of HIDE and FIDE SNPs since they emerged in 2021.</p>
+      </div>
+      <div class="working-card">
+        <span class="corner-mark">/02</span>
+        <div class="working-status"><span class="live-dot"></span>Active · Event Study</div>
+        <h3 class="working-title">GLP-1 access across the commercial-to-Medicare transition</h3>
+        <p class="working-desc">An event study examining how GLP-1 medication use, out-of-pocket spending, and continuity of therapy change when individuals age into Medicare from commercial insurance — a coverage transition with sharply different formularies, prior authorization, and cost-sharing structures.</p>
+      </div>
+      <div class="working-card">
+        <span class="corner-mark">/03</span>
+        <div class="working-status"><span class="live-dot"></span>Active · C-SNP</div>
+        <h3 class="working-title">Chronic Condition Special Needs Plans (C-SNPs)</h3>
+        <p class="working-desc">Evaluating enrollment, healthcare utilization, and quality outcomes among Medicare beneficiaries enrolled in C-SNPs — a less-studied corner of the SNP landscape designed for beneficiaries with severe or disabling chronic conditions.</p>
+      </div>
+      <div class="working-card">
+        <span class="corner-mark">/04</span>
+        <div class="working-status"><span class="live-dot"></span>Active · AI & Coverage</div>
+        <h3 class="working-title">Adoption and access for FDA-cleared AI medical devices</h3>
+        <p class="working-desc">Examining diffusion patterns of FDA-cleared AI/ML-enabled medical devices and what insurance and reimbursement structures mean for patient access — including how Medicare and commercial coverage decisions shape uptake across specialties.</p>
+      </div>
+      <div class="working-card">
+        <span class="corner-mark">/05</span>
+        <div class="working-status"><span class="live-dot"></span>Planning</div>
+        <h3 class="working-title">K99/R00 — Insurance coverage transitions and medication access</h3>
+        <p class="working-desc">Building toward an independent research program on how insurance coverage policies and transitions affect medication access for chronic conditions — with a particular focus on GLP-1 access and behavioral health populations.</p>
+      </div>
+      <div class="working-card">
+        <span class="corner-mark">/06</span>
+        <div class="working-status"><span class="live-dot"></span>Methods</div>
+        <h3 class="working-title">Methods I keep coming back to</h3>
+        <p class="working-desc">Difference-in-differences with staggered adoption, instrumental variables for plan choice, and how to draw causal inferences from claims data when enrollment in any given plan is anything but random.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEYOND -->
+  <div class="page" id="beyond">
+    <div class="eyebrow">
+      <span class="num">/05</span>
+      <span class="label">Beyond</span>
+      <span class="stroke"></span>
+    </div>
+    <h2 class="page-title">A life outside the claims data.</h2>
+    <p class="page-subtitle">Cats, travel, and the parts of myself that don't fit on a CV.</p>
+
+    <div class="beyond-grid">
+      <div class="beyond-card">
+        <div class="beyond-visual cats">
+          <svg viewBox="0 0 100 100" fill="currentColor"><use href="#ico-cat"/></svg>
+        </div>
+        <div class="beyond-content">
+          <div class="beyond-eyebrow">Furry coauthors</div>
+          <h3 class="beyond-title">The cats</h3>
+          <p class="beyond-text">My most loyal research assistants — they don't read drafts, but they sit on them. <em>Vital contributors</em> to thinking-time and to the warmth of any home office.</p>
+        </div>
+      </div>
+      <div class="beyond-card">
+        <div class="beyond-visual travel">
+          <svg viewBox="0 0 100 100" fill="currentColor"><use href="#ico-travel"/></svg>
+        </div>
+        <div class="beyond-content">
+          <div class="beyond-eyebrow">Field notes</div>
+          <h3 class="beyond-title">The trips</h3>
+          <p class="beyond-text">I keep a running list of <em>places that surprised me</em> — back streets, small museums, unexpected meals. Travel is how I remember that my data is made of people.</p>
+        </div>
+      </div>
+      <div class="beyond-card">
+        <div class="beyond-visual fun">
+          <svg viewBox="0 0 100 100" fill="currentColor"><use href="#ico-flower"/></svg>
+        </div>
+        <div class="beyond-content">
+          <div class="beyond-eyebrow">Off the clock</div>
+          <h3 class="beyond-title">Quiet hours</h3>
+          <p class="beyond-text">I love <em>creative writing</em>, listening to music, cooking, baking, and arranging flowers. The same care I bring to a careful research design, I bring to a Sunday loaf or a bouquet on the kitchen table.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="page" id="contact">
+    <div class="eyebrow">
+      <span class="num">/06</span>
+      <span class="label">Contact</span>
+      <span class="stroke"></span>
+    </div>
+    <h2 class="page-title">Get in touch.</h2>
+    <p class="page-subtitle">Always happy to talk about D-SNPs, claims data, GLP-1s, identification strategies, or recommend a city to visit.</p>
+
+    <div class="contact-block">
+      <div class="contact-row">
+        <div class="contact-label">Email</div>
+        <div class="contact-value"><span class="email-obf">mij4018 <span class="at">[at]</span> med <span class="at">[dot]</span> cornell <span class="at">[dot]</span> edu</span></div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-label">Affiliation</div>
+        <div class="contact-value">Weill Cornell Medical College, New York, NY</div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-label">Department</div>
+        <div class="contact-value">Population Health Sciences · Division of Health Policy and Economics</div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-label">Google Scholar</div>
+        <div class="contact-value"><a href="#">— add link —</a></div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-label">LinkedIn</div>
+        <div class="contact-value"><a href="#">— add link —</a></div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-label">CV</div>
+        <div class="contact-value"><a href="#">Download (PDF)</a></div>
+      </div>
+    </div>
+
+    <p class="contact-note">For research collaborations, please email directly. I aim to respond within a few days.</p>
+  </div>
+
+</main>
+
+<footer>
+  © 2026 MIAOQING JIA <span class="seal">苗青</span> · NEW YORK
+</footer>
+
+<script>
+  const pages = document.querySelectorAll('.page');
+  const navLinks = document.querySelectorAll('[data-page]');
+
+  function showPage(name) {
+    pages.forEach(p => p.classList.toggle('active', p.id === name));
+    navLinks.forEach(a => {
+      if (a.classList.contains('logo')) return;
+      a.classList.toggle('active', a.dataset.page === name);
+    });
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    if (history.pushState) history.pushState(null, '', '#' + name);
+    initReveals();
+    animateStats();
+  }
+
+  navLinks.forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      showPage(a.dataset.page);
+    });
+  });
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const hash = window.location.hash.replace('#', '');
+    if (hash && document.getElementById(hash)) showPage(hash);
+    else { initReveals(); animateStats(); }
+  });
+  window.addEventListener('popstate', () => {
+    const hash = window.location.hash.replace('#', '') || 'home';
+    if (document.getElementById(hash)) showPage(hash);
+  });
+
+  function initReveals() {
+    const reveals = document.querySelectorAll('.page.active .reveal:not(.in)');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(en => {
+        if (en.isIntersecting) {
+          en.target.classList.add('in');
+          obs.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.18 });
+    reveals.forEach(r => obs.observe(r));
+  }
+
+  function animateStats() {
+    const stats = document.querySelectorAll('.page.active .stat-num[data-count]:not([data-done])');
+    stats.forEach(s => {
+      const target = parseInt(s.dataset.count, 10);
+      const valEl = s.querySelector('.value');
+      if (!valEl) return;
+      s.dataset.done = '1';
+      const duration = 1300;
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(en => {
+          if (en.isIntersecting) {
+            const start = performance.now();
+            function tick(now) {
+              const t = Math.min(1, (now - start) / duration);
+              const eased = 1 - Math.pow(1 - t, 3);
+              valEl.textContent = Math.round(target * eased);
+              if (t < 1) requestAnimationFrame(tick);
+            }
+            requestAnimationFrame(tick);
+            obs.unobserve(en.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      obs.observe(s);
+    });
+  }
+</script>
+</body>
+</html>
