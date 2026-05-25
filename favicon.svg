@@ -1,11 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#3f7d6e"/>
-      <stop offset="1" stop-color="#2c5d52"/>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#a9cbd8"/>
+      <stop offset="0.55" stop-color="#d8e5e6"/>
+      <stop offset="1" stop-color="#f2ead9"/>
     </linearGradient>
+    <radialGradient id="sun" cx="50%" cy="45%" r="55%">
+      <stop offset="0" stop-color="#f2bd80"/>
+      <stop offset="1" stop-color="#d99a5b"/>
+    </radialGradient>
   </defs>
-  <rect width="64" height="64" rx="15" fill="url(#bg)"/>
-  <circle cx="32" cy="32" r="22" fill="none" stroke="#d99a5b" stroke-width="1.6" opacity="0.85"/>
-  <text x="32" y="43.5" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="34" font-style="italic" fill="#fbfaf3">M</text>
+  <rect width="64" height="64" rx="15" fill="url(#sky)"/>
+  <circle cx="32" cy="30" r="13" fill="url(#sun)"/>
+  <circle cx="32" cy="30" r="13" fill="none" stroke="#fbfaf3" stroke-width="1.3" opacity="0.55"/>
 </svg>
