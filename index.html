@@ -863,6 +863,44 @@
     font-weight: 500;
   }
   .pub-content { max-width: 720px; }
+  .pub-abstract {
+    margin-top: 8px;
+  }
+  .pub-abstract summary {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    cursor: pointer;
+    list-style: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    user-select: none;
+    transition: color 0.2s;
+  }
+  .pub-abstract summary::-webkit-details-marker { display: none; }
+  .pub-abstract summary::before {
+    content: '+';
+    font-size: 13px;
+    line-height: 1;
+  }
+  .pub-abstract[open] summary::before { content: '–'; }
+  .pub-abstract summary:hover { color: var(--accent-deep); }
+  .pub-abstract .abstract-body {
+    margin-top: 10px;
+    padding: 14px 16px;
+    background: var(--bg-card);
+    border-left: 2px solid var(--accent-soft);
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    max-width: 680px;
+  }
+  .pub-abstract .abstract-body strong { color: var(--ink); font-weight: 600; }
+  .pub-abstract .abstract-body p { margin-bottom: 8px; }
+  .pub-abstract .abstract-body p:last-child { margin-bottom: 0; }
   .pub-title {
     font-family: var(--serif);
     font-size: 16.5px;
@@ -1535,11 +1573,31 @@
     <div class="pub-section">
       <h3 class="pub-section-title">
         <span class="label">Under Review</span>
-        <span class="count">/ 01</span>
+        <span class="count">/ 02</span>
         <span class="stroke"></span>
       </h3>
       <div class="pub-item">
         <div class="pub-num">01</div>
+        <div class="pub-content">
+          <h4 class="pub-title">Social Needs Screening and Subsequent Acute Care Utilization in a Large Safety Net Health System</h4>
+          <p class="pub-authors"><strong>Jia, M.</strong>*, Dong, H.* (joint first authors), Fiori, K., Adamson, E., Zhang, M., Tanner, D., Weeks, W.B., Speyer, P., Aerts, A., & Zhang, Y.</p>
+          <details class="pub-abstract">
+            <summary>Abstract</summary>
+            <div class="abstract-body">
+              <p><strong>Background.</strong> Health systems increasingly screen for patients' social needs, but evidence is limited on which specific needs are most associated with subsequent acute care use.</p>
+              <p><strong>Objective.</strong> To examine associations between patient-reported social needs and subsequent acute care utilization in a large safety-net population.</p>
+              <p><strong>Design.</strong> Retrospective cohort study linking 2023 social needs screening data from a large safety-net health system to longitudinal electronic health records from a multi-health system clinical research network.</p>
+              <p><strong>Participants.</strong> 20,337 adults with a primary care visit who completed social needs screening in 2023.</p>
+              <p><strong>Main Measures.</strong> Positive screening for nine social needs domains (e.g., food insecurity, transportation-related delayed care). Outcomes were any hospitalization, any ED visit, preventable hospitalization, and preventable ED visit, using multivariable logistic regression adjusting for demographics, comorbidities, and neighborhood social conditions.</p>
+              <p><strong>Key Results.</strong> Overall, 15.9% screened positive for ≥1 social need; the most prevalent were food insecurity (5.9%) and problems with residence (5.6%). After adjustment, positive screening for transportation-related delayed care was associated with a 6.8-percentage-point increase in the probability of ≥1 hospitalization, an 8.4-point increase in ≥1 ED visit, a 1.2-point increase in ≥1 preventable hospitalization, and a 4.2-point increase in ≥1 preventable ED visit. Housing-related problems were associated with a 4.1-point increase in ≥1 ED visit.</p>
+              <p><strong>Conclusions.</strong> In a safety-net setting, transportation barriers showed the strongest and most consistent associations with subsequent acute care use, suggesting targeted transportation support and care-navigation strategies may be critical components of social care interventions.</p>
+            </div>
+          </details>
+        </div>
+        <span class="pub-status">Under Review · 2026</span>
+      </div>
+      <div class="pub-item">
+        <div class="pub-num">02</div>
         <div class="pub-content">
           <h4 class="pub-title">Social Determinants of Health Clustering Analysis Identifies Five Neighborhood Archetypes for Cardiovascular Disease Prevention in New York City</h4>
           <p class="pub-authors">Zhang, Y., Li, H., <strong>Jia, M.</strong>, et al.</p>
@@ -1575,7 +1633,7 @@
     <div class="pub-section">
       <h3 class="pub-section-title">
         <span class="label">In Preparation</span>
-        <span class="count">/ 03</span>
+        <span class="count">/ 02</span>
         <span class="stroke"></span>
       </h3>
       <div class="pub-item">
@@ -1590,13 +1648,6 @@
         <div class="pub-content">
           <h4 class="pub-title">Using Machine Learning to Characterize Patient Trajectories after Hospice Live Discharge among Medicare Beneficiaries</h4>
           <p class="pub-authors">Li, H., <strong>Jia, M.</strong>, & Zhang, Y.</p>
-        </div>
-      </div>
-      <div class="pub-item">
-        <div class="pub-num">03</div>
-        <div class="pub-content">
-          <h4 class="pub-title">Predicting Acute Care Use Using Social Needs Screening Data among Patients of a Large Safety Net Health System</h4>
-          <p class="pub-authors">Zhang, Y., Li, H., <strong>Jia, M.</strong>, et al.</p>
         </div>
       </div>
     </div>
