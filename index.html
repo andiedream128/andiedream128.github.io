@@ -259,6 +259,14 @@
     letter-spacing: 0.22em;
     font-weight: 400;
   }
+  .home-name-cn .creds {
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    color: var(--accent);
+    font-weight: 700;
+    text-transform: uppercase;
+  }
 
   .hero-tagline {
     font-family: var(--serif);
@@ -1043,8 +1051,128 @@
      ======================================================== */
   .beyond-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 22px;
+  }
+  .beyond-card[data-page] { cursor: pointer; }
+  .beyond-card .beyond-more {
+    margin-top: 12px;
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: gap 0.25s ease;
+  }
+  .beyond-card:hover .beyond-more { gap: 9px; }
+  /* Detail-page elements */
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-family: var(--sans);
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: var(--accent);
+    cursor: pointer;
+    margin-bottom: 28px;
+    text-decoration: none;
+  }
+  .back-link:hover { color: var(--accent-deep); }
+  .detail-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+  .detail-text p {
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--ink);
+    font-weight: 300;
+    margin-bottom: 18px;
+  }
+  .detail-text a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-soft); }
+  .detail-text a:hover { border-bottom-color: var(--accent); }
+  .photo-slot {
+    border-radius: 16px;
+    aspect-ratio: 4/5;
+    display: flex;
+    align-items: flex-end;
+    padding: 16px;
+    color: rgba(255,255,255,0.92);
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    position: relative;
+  }
+  .photo-slot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .dest-list { list-style: none; margin-top: 8px; }
+  .dest-item {
+    padding: 22px 0;
+    border-bottom: 1px solid var(--line-soft);
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 28px;
+    align-items: baseline;
+  }
+  .dest-item .place {
+    font-family: var(--serif);
+    font-size: 21px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .dest-item .place .sub {
+    display: block;
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-top: 5px;
+  }
+  .dest-item .note { font-size: 14.5px; color: var(--ink-soft); line-height: 1.7; }
+  .hobby-block {
+    padding: 28px 0;
+    border-bottom: 1px solid var(--line-soft);
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 32px;
+    align-items: start;
+  }
+  .hobby-block h3 {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .hobby-block p { font-size: 14.5px; color: var(--ink-soft); line-height: 1.7; }
+  .hobby-block a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-soft); }
+  .photo-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 14px;
+  }
+  .photo-row .photo-slot { aspect-ratio: 1; }
+  .spotify-wrap {
+    margin-top: 24px;
+    max-width: 560px;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 28px;
+    text-align: center;
   }
   .beyond-card {
     background: var(--bg-card);
@@ -1304,7 +1432,7 @@
       <div class="hero-info">
         <div class="hero-eyebrow">Postdoctoral Associate · Weill Cornell Medicine</div>
         <h1 class="home-name">Miaoqing<br/>Jia<span class="accent">.</span></h1>
-        <div class="home-name-cn">苗 青</div>
+        <div class="home-name-cn">苗 青 &nbsp;·&nbsp; <span class="creds">PhD · CFA · FRM</span></div>
         <p class="hero-tagline">Health economist studying insurance coverage, medication access, and the policies that decide who gets care.</p>
         <div class="hero-meta">
           <span><span class="dot"></span> New York, NY</span>
@@ -1626,7 +1754,7 @@
     <div class="pub-section">
       <h3 class="pub-section-title">
         <span class="label">Working Papers</span>
-        <span class="count">/ 09</span>
+        <span class="count">/ 08</span>
         <span class="stroke"></span>
       </h3>
       <div class="pub-item">
@@ -1711,14 +1839,6 @@
         </div>
         <span class="pub-status">2025</span>
       </div>
-      <div class="pub-item">
-        <div class="pub-num">09</div>
-        <div class="pub-content">
-          <h4 class="pub-title">A New Trigger for Credit Card Misuse during Economic Downturns</h4>
-          <p class="pub-authors"><strong>Jia, M.</strong>, & Wang, P.</p>
-        </div>
-        <span class="pub-status">Working Paper</span>
-      </div>
     </div>
   </div>
 
@@ -1783,36 +1903,146 @@
     <p class="page-subtitle">Cats, travel, and the parts of myself that don't fit on a CV.</p>
 
     <div class="beyond-grid">
-      <div class="beyond-card">
+      <div class="beyond-card" data-page="cats">
         <div class="beyond-visual cats">
           <svg viewBox="0 0 100 100" fill="currentColor"><use href="#ico-cat"/></svg>
         </div>
         <div class="beyond-content">
           <div class="beyond-eyebrow">Furry coauthor</div>
           <h3 class="beyond-title">Lemon</h3>
-          <p class="beyond-text">I adopted <em>Lemon</em> — a lively tabby boy — in April 2021. My most loyal research assistant: he doesn't read drafts, but he sits on them. Say "Happy Birthday, Meow" on June 8.</p>
+          <p class="beyond-text">My most loyal research assistant — a lively tabby boy who doesn't read drafts, but sits on them.</p>
+          <span class="beyond-more">Meet Lemon →</span>
         </div>
       </div>
-      <div class="beyond-card">
+      <div class="beyond-card" data-page="trips">
         <div class="beyond-visual travel">
           <svg viewBox="0 0 100 100" fill="currentColor"><use href="#ico-travel"/></svg>
         </div>
         <div class="beyond-content">
           <div class="beyond-eyebrow">Field notes</div>
           <h3 class="beyond-title">The trips</h3>
-          <p class="beyond-text">I keep a running list of <em>places that surprised me</em> — back streets, small museums, unexpected meals. Travel is how I remember that my data is made of people.</p>
+          <p class="beyond-text">South America, Japan, Bali, Taiwan — travel is how I remember that my data is made of people.</p>
+          <span class="beyond-more">Where I've been →</span>
         </div>
       </div>
-      <div class="beyond-card">
+      <div class="beyond-card" data-page="offclock">
         <div class="beyond-visual fun">
           <svg viewBox="0 0 100 100" fill="currentColor"><use href="#ico-flower"/></svg>
         </div>
         <div class="beyond-content">
           <div class="beyond-eyebrow">Off the clock</div>
           <h3 class="beyond-title">Quiet hours</h3>
-          <p class="beyond-text">I love <em>creative writing</em>, listening to music, cooking, baking, and arranging flowers. The same care I bring to a careful research design, I bring to a Sunday loaf or a bouquet on the kitchen table.</p>
+          <p class="beyond-text">Creative writing, cooking, baking, and arranging flowers — the same care I bring to research.</p>
+          <span class="beyond-more">Take a look →</span>
         </div>
       </div>
+      <div class="beyond-card" data-page="music">
+        <div class="beyond-visual" style="background: linear-gradient(160deg, #b3a3d4 0%, #6a5b96 100%);">
+          <svg viewBox="0 0 100 100" fill="currentColor">
+            <path d="M40 26 L40 66 M72 20 L72 60 M40 26 L72 20" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <ellipse cx="32" cy="66" rx="11" ry="8" transform="rotate(-16 32 66)"/>
+            <ellipse cx="64" cy="60" rx="11" ry="8" transform="rotate(-16 64 60)"/>
+          </svg>
+        </div>
+        <div class="beyond-content">
+          <div class="beyond-eyebrow">On repeat</div>
+          <h3 class="beyond-title">Music</h3>
+          <p class="beyond-text">A running playlist for writing, analysis, and long flights.</p>
+          <span class="beyond-more">Have a listen →</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEYOND · LEMON -->
+  <div class="page" id="cats">
+    <a class="back-link" data-page="beyond">← Beyond</a>
+    <div class="eyebrow"><span class="num">/05</span><span class="label">Lemon</span><span class="stroke"></span></div>
+    <h2 class="page-title">Lemon.</h2>
+    <p class="page-subtitle">My most loyal — if unproductive — research assistant.</p>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <p>Lemon joined me in April 2021 — a lively tabby boy, born June 8, 2020. He has firm opinions about which drafts deserve to be sat on (all of them), and an uncanny sense for the exact moment a deadline is approaching.</p>
+        <p>He doesn't read my papers, but he keeps me company through every revision and reminds me to take breaks. On June 8, the only correct greeting is <em>"Happy Birthday, Meow."</em></p>
+      </div>
+      <div class="photo-slot" style="background: linear-gradient(160deg, #f0b878 0%, #c9663f 100%);">Lemon · photo coming soon</div>
+    </div>
+  </div>
+
+  <!-- BEYOND · TRIPS -->
+  <div class="page" id="trips">
+    <a class="back-link" data-page="beyond">← Beyond</a>
+    <div class="eyebrow"><span class="num">/05</span><span class="label">The trips</span><span class="stroke"></span></div>
+    <h2 class="page-title">Places that surprised me.</h2>
+    <p class="page-subtitle">Travel is how I remember that my data is made of people.</p>
+    <ul class="dest-list">
+      <li class="dest-item">
+        <div class="place">South America<span class="sub">Solo trip</span></div>
+        <div class="note">Peru, Bolivia, and Chile — high deserts, salt flats that mirror the sky, and the long, clarifying quiet of altitude. My first big solo journey.</div>
+      </li>
+      <li class="dest-item">
+        <div class="place">Japan<span class="sub">Many visits</span></div>
+        <div class="note">From city neon to mountain shrines, Mt. Fuji to Kyoto's temples — the country I keep returning to.</div>
+      </li>
+      <li class="dest-item">
+        <div class="place">Bali &amp; Singapore<span class="sub">Southeast Asia</span></div>
+        <div class="note">Warm islands, rice terraces, and a city that feels like a glimpse of the future.</div>
+      </li>
+      <li class="dest-item">
+        <div class="place">Taiwan<span class="sub">East Asia</span></div>
+        <div class="note">Night markets, green mountains, and some of the best small kitchens I've found anywhere.</div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- BEYOND · OFF THE CLOCK -->
+  <div class="page" id="offclock">
+    <a class="back-link" data-page="beyond">← Beyond</a>
+    <div class="eyebrow"><span class="num">/05</span><span class="label">Off the clock</span><span class="stroke"></span></div>
+    <h2 class="page-title">The parts that don't fit on a CV.</h2>
+    <p class="page-subtitle">The same care I bring to a research design, I bring to a Sunday loaf or a bouquet.</p>
+
+    <div class="hobby-block">
+      <h3>Writing</h3>
+      <div>
+        <p>Creative writing is where I think without a regression table. Selected pieces — <a href="#">coming soon (TBD)</a>.</p>
+      </div>
+    </div>
+    <div class="hobby-block">
+      <h3>Cooking &amp; baking</h3>
+      <div>
+        <p>Baking since 2017 — bread, pastries, and the occasional ambitious cake. Nothing brings smiles to a table faster.</p>
+        <div class="photo-row">
+          <div class="photo-slot" style="background: linear-gradient(160deg, #e8b27a 0%, #c47b3c 100%);">Photo</div>
+          <div class="photo-slot" style="background: linear-gradient(160deg, #e0a96a 0%, #b56a35 100%);">Photo</div>
+          <div class="photo-slot" style="background: linear-gradient(160deg, #edc089 0%, #cf8a44 100%);">Photo</div>
+        </div>
+      </div>
+    </div>
+    <div class="hobby-block">
+      <h3>Floristry</h3>
+      <div>
+        <p>Arranging flowers since 2020 — small arrangements that bring spring to a winter desk.</p>
+        <div class="photo-row">
+          <div class="photo-slot" style="background: linear-gradient(160deg, #9fbb86 0%, #557a5c 100%);">Photo</div>
+          <div class="photo-slot" style="background: linear-gradient(160deg, #a7c290 0%, #5e8064 100%);">Photo</div>
+          <div class="photo-slot" style="background: linear-gradient(160deg, #b3ca9b 0%, #6a8a6f 100%);">Photo</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEYOND · MUSIC -->
+  <div class="page" id="music">
+    <a class="back-link" data-page="beyond">← Beyond</a>
+    <div class="eyebrow"><span class="num">/05</span><span class="label">Music</span><span class="stroke"></span></div>
+    <h2 class="page-title">On repeat.</h2>
+    <p class="page-subtitle">A running playlist for writing, analysis, and long flights.</p>
+    <div class="spotify-wrap">
+      <!-- TO ADD YOUR SPOTIFY PLAYLIST:
+           On Spotify, open your playlist → Share → Embed playlist → copy the <iframe> code,
+           and paste it in place of the paragraph below. -->
+      <p style="font-family: var(--serif); font-style: italic; font-size: 17px; color: var(--ink-soft); margin: 0;">Spotify playlist — coming soon.</p>
     </div>
   </div>
 
@@ -1824,7 +2054,7 @@
       <span class="stroke"></span>
     </div>
     <h2 class="page-title">Get in touch.</h2>
-    <p class="page-subtitle">Always happy to talk about D-SNPs, claims data, GLP-1s, identification strategies, or recommend a city to visit.</p>
+    <p class="page-subtitle">Always happy to connect — about research, a possible collaboration, or just to say hello.</p>
 
     <div class="contact-block">
       <div class="contact-row">
