@@ -1118,13 +1118,36 @@
   .photo-slot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
   .dest-list { list-style: none; margin-top: 8px; }
   .dest-item {
-    padding: 22px 0;
-    border-bottom: 1px solid var(--line-soft);
+    padding: 22px 0 0;
     display: grid;
     grid-template-columns: 200px 1fr;
     gap: 28px;
     align-items: baseline;
   }
+  .trip-block { border-bottom: 1px solid var(--line-soft); padding-bottom: 22px; }
+  .trip-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 18px;
+  }
+  .trip-gallery a {
+    display: block;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 1;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--line-soft);
+  }
+  .trip-gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    display: block;
+  }
+  .trip-gallery a:hover img { transform: scale(1.06); }
+  @media (max-width: 880px) { .trip-gallery { grid-template-columns: repeat(2, 1fr); } }
   .dest-item .place {
     font-family: var(--serif);
     font-size: 21px;
@@ -1975,24 +1998,42 @@
     <div class="eyebrow"><span class="num">/05</span><span class="label">The trips</span><span class="stroke"></span></div>
     <h2 class="page-title">Places that surprised me.</h2>
     <p class="page-subtitle">Travel is how I remember that my data is made of people.</p>
-    <ul class="dest-list">
-      <li class="dest-item">
-        <div class="place">South America<span class="sub">Solo trip</span></div>
-        <div class="note">Peru, Bolivia, and Chile — high deserts, salt flats that mirror the sky, and the long, clarifying quiet of altitude. My first big solo journey.</div>
-      </li>
-      <li class="dest-item">
-        <div class="place">Japan<span class="sub">Many visits</span></div>
-        <div class="note">From city neon to mountain shrines, Mt. Fuji to Kyoto's temples — the country I keep returning to.</div>
-      </li>
-      <li class="dest-item">
-        <div class="place">Bali &amp; Singapore<span class="sub">Southeast Asia</span></div>
-        <div class="note">Warm islands, rice terraces, and a city that feels like a glimpse of the future.</div>
-      </li>
-      <li class="dest-item">
-        <div class="place">Taiwan<span class="sub">East Asia</span></div>
-        <div class="note">Night markets, green mountains, and some of the best small kitchens I've found anywhere.</div>
-      </li>
-    </ul>
+    <div class="dest-list">
+      <div class="trip-block">
+        <div class="dest-item">
+          <div class="place">South America<span class="sub">Solo trip</span></div>
+          <div class="note">Peru, Bolivia, and Chile — high deserts, salt flats that mirror the sky, and the long, clarifying quiet of altitude. My first big solo journey.</div>
+        </div>
+      </div>
+      <div class="trip-block">
+        <div class="dest-item">
+          <div class="place">Japan<span class="sub">Many visits</span></div>
+          <div class="note">From city neon to mountain shrines, Mt. Fuji to Kyoto's temples — the country I keep returning to.</div>
+        </div>
+      </div>
+      <div class="trip-block">
+        <div class="dest-item">
+          <div class="place">Bali &amp; Singapore<span class="sub">Southeast Asia</span></div>
+          <div class="note">Warm islands, rice terraces, and a city that feels like a glimpse of the future.</div>
+        </div>
+      </div>
+      <div class="trip-block">
+        <div class="dest-item">
+          <div class="place">Taiwan<span class="sub">East Asia</span></div>
+          <div class="note">Sun Moon Lake, the Kenting coast, the Alishan forest railway, night views, and the best small kitchens I've found anywhere.</div>
+        </div>
+        <div class="trip-gallery">
+          <a href="taiwan-1.jpg" target="_blank" rel="noopener"><img src="taiwan-1.jpg" alt="Sun Moon Lake, Taiwan" loading="lazy"/></a>
+          <a href="taiwan-2.jpg" target="_blank" rel="noopener"><img src="taiwan-2.jpg" alt="Eluanbi lighthouse, Taiwan" loading="lazy"/></a>
+          <a href="taiwan-3.jpg" target="_blank" rel="noopener"><img src="taiwan-3.jpg" alt="Kenting coast, Taiwan" loading="lazy"/></a>
+          <a href="taiwan-4.jpg" target="_blank" rel="noopener"><img src="taiwan-4.jpg" alt="Alishan forest railway, Taiwan" loading="lazy"/></a>
+          <a href="taiwan-5.jpg" target="_blank" rel="noopener"><img src="taiwan-5.jpg" alt="Night city view, Taiwan" loading="lazy"/></a>
+          <a href="taiwan-6.jpg" target="_blank" rel="noopener"><img src="taiwan-6.jpg" alt="Old shopfront, Taiwan" loading="lazy"/></a>
+          <a href="taiwan-7.jpg" target="_blank" rel="noopener"><img src="taiwan-7.jpg" alt="Traditional ice dessert shop, Taiwan" loading="lazy"/></a>
+          <a href="taiwan-8.jpg" target="_blank" rel="noopener"><img src="taiwan-8.jpg" alt="Street scene, Taiwan" loading="lazy"/></a>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- BEYOND · OFF THE CLOCK -->
