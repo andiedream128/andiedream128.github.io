@@ -10,7 +10,7 @@
 <meta name="robots" content="index, follow" />
 <meta name="keywords" content="Miaoqing Jia, 贾苗青, Andie Jia, health economist, Weill Cornell Medicine, health economics, health policy, industrial organization, applied microeconomics, Boston University economics" />
 <link rel="canonical" href="https://miaoqingjia.com/" />
-<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg?v=4" />
 <!-- Open Graph -->
 <meta property="og:type" content="profile" />
 <meta property="og:title" content="Miaoqing Jia | Health Economist · Weill Cornell Medicine" />
@@ -229,29 +229,35 @@
     display: block; width: 9px; height: 9px; border-radius: 50%;
     background: var(--gold); box-shadow: 0 0 0 3px rgba(217,154,91,0.30);
   }
+  .tm-pin .d { cursor: pointer; transition: transform 0.2s ease; }
+  .tm-pin:hover .d, .tm-pin.show .d { transform: scale(1.35); }
   .tm-pin .l {
     position: absolute; left: 13px; top: 50%; transform: translateY(-50%);
     white-space: nowrap; font-family: var(--sans); font-size: 11px; font-weight: 600;
-    color: var(--ink); text-shadow: 0 1px 3px rgba(255,255,255,0.55);
+    color: var(--ink); text-shadow: 0 1px 3px rgba(255,255,255,0.6);
+    background: rgba(251,250,243,0.82); padding: 1px 6px; border-radius: 6px;
+    opacity: 0; pointer-events: none; transition: opacity 0.22s ease;
   }
-  body.dusk .tm-pin .l { color: var(--ink); text-shadow: 0 1px 4px rgba(0,0,0,0.55); }
+  .tm-pin:hover .l, .tm-pin.show .l { opacity: 1; }
+  body.dusk .tm-pin .l { color: #2a2f47; background: rgba(243,236,224,0.9); text-shadow: none; }
   .tm-pin.left .l { left: auto; right: 13px; }
   .tm-pin.up .l { left: 50%; right: auto; top: auto; bottom: 13px; transform: translateX(-50%); }
   .tm-pin.down .l { left: 50%; right: auto; top: 13px; transform: translateX(-50%); }
+  .tm-pin.up .l, .tm-pin.down .l { transform: translateX(-50%); }
   @media (max-width: 640px) { .tm-pin .l { font-size: 9px; } .tm-pin .d { width: 7px; height: 7px; } }
 
-  /* ===== Page-specific custom cursors ===== */
+  /* ===== Page-specific custom cursors (refined, palette-matched) ===== */
   #cats, #cats * {
-    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'><g fill='%23b9743a'><ellipse cx='15' cy='19' rx='6' ry='5'/><circle cx='7' cy='12' r='2.6'/><circle cx='12' cy='8' r='2.6'/><circle cx='18' cy='8' r='2.6'/><circle cx='23' cy='12' r='2.6'/></g></svg>") 15 15, auto;
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'><g fill='%23b9743a'><ellipse cx='14' cy='18' rx='5.4' ry='4.4'/><ellipse cx='7' cy='12' rx='2.1' ry='2.7'/><ellipse cx='11.6' cy='8.6' rx='2.1' ry='2.8'/><ellipse cx='16.4' cy='8.6' rx='2.1' ry='2.8'/><ellipse cx='21' cy='12' rx='2.1' ry='2.7'/></g></svg>") 14 14, auto;
   }
   #trips, #trips * {
-    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'><path d='M28 3 L3 13 L12 16 L15 26 L18 16 Z' fill='%233f7d6e'/></svg>") 6 6, auto;
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'><path d='M25 4 L3 13 L12 15.5 L14.5 24 L18 14.5 Z' fill='%233f7d6e'/><path d='M12 15.5 L25 4' fill='none' stroke='%23fbfaf3' stroke-width='0.8' opacity='0.65'/></svg>") 12 16, auto;
   }
   #offclock, #offclock * {
-    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'><g fill='%233f7d6e'><circle cx='15' cy='9' r='5'/><circle cx='9' cy='15' r='5'/><circle cx='21' cy='15' r='5'/><circle cx='15' cy='21' r='5'/></g><rect x='14.2' y='19' width='1.6' height='8' fill='%233f7d6e'/></svg>") 15 15, auto;
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'><g fill='%234a8a79'><path d='M14 14 C9.5 9.8 9.8 5 12.4 5 C13.6 5 14 6.3 14 7.2 C14 6.3 14.4 5 15.6 5 C18.2 5 18.5 9.8 14 14 Z'/><path d='M14 14 C9.5 9.8 9.8 5 12.4 5 C13.6 5 14 6.3 14 7.2 C14 6.3 14.4 5 15.6 5 C18.2 5 18.5 9.8 14 14 Z' transform='rotate(90 14 14)'/><path d='M14 14 C9.5 9.8 9.8 5 12.4 5 C13.6 5 14 6.3 14 7.2 C14 6.3 14.4 5 15.6 5 C18.2 5 18.5 9.8 14 14 Z' transform='rotate(180 14 14)'/><path d='M14 14 C9.5 9.8 9.8 5 12.4 5 C13.6 5 14 6.3 14 7.2 C14 6.3 14.4 5 15.6 5 C18.2 5 18.5 9.8 14 14 Z' transform='rotate(270 14 14)'/></g></svg>") 14 14, auto;
   }
   #music, #music * {
-    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'><path d='M6 17 V14 a9 9 0 0 1 18 0 V17' fill='none' stroke='%2328383d' stroke-width='2.4'/><rect x='4' y='16' width='5' height='9' rx='2.2' fill='%2328383d'/><rect x='21' y='16' width='5' height='9' rx='2.2' fill='%2328383d'/></svg>") 15 15, auto;
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'><path d='M6 16 V13 a8 8 0 0 1 16 0 V16' fill='none' stroke='%233f7d6e' stroke-width='2' stroke-linecap='round'/><rect x='3.8' y='15' width='4.4' height='8' rx='2.2' fill='%233f7d6e'/><rect x='19.8' y='15' width='4.4' height='8' rx='2.2' fill='%233f7d6e'/></svg>") 14 14, auto;
   }
 
   /* ========================================================
@@ -2838,6 +2844,16 @@
     }
     document.addEventListener('click', (e) => {
       if (e.target.closest('#cats .page-title')) spawn(e.clientX, e.clientY);
+    });
+  })();
+
+  // ===== Travel map: tap a pin to reveal its name =====
+  (function(){
+    document.querySelectorAll('.tm-pin').forEach(function(p){
+      p.addEventListener('click', function(e){
+        e.stopPropagation();
+        p.classList.toggle('show');
+      });
     });
   })();
 </script>
