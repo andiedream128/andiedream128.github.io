@@ -7,32 +7,34 @@
 <meta name="description" content="Miaoqing Jia — Postdoctoral Associate at Weill Cornell Medical College. Health economist studying insurance coverage and medication access." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400&family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+SC:wght@400;500;600&display=swap" rel="stylesheet" />
 <style>
   /* ========================================================
-     PALETTE: SENCHA 煎茶
-     Pale celadon · warm tea brown · soft cream.
-     Tea-ceremony quiet, eastern, contemplative.
+     PALETTE: GHIBLI × 新海诚 SHINKAI
+     Luminous gradient skies · warm meadow · golden hour.
+     Painterly, atmospheric, elegant.
      ======================================================== */
   :root {
-    --bg: #e3e6d8;
-    --bg-deep: #d2d6c4;
-    --bg-card: #edefe4;
-    --ink: #2a2a23;
-    --ink-soft: #555548;
-    --ink-muted: #8e8e7e;
-    --accent: #6e5a3f;          /* tea brown */
-    --accent-deep: #523f2a;
-    --accent-soft: #b8a980;
-    --moss: #8a9476;
-    --line: rgba(42, 42, 35, 0.15);
-    --line-soft: rgba(42, 42, 35, 0.07);
-    --shadow: 0 1px 2px rgba(42,42,35,.04), 0 8px 24px rgba(42,42,35,.07);
-    --shadow-lg: 0 2px 4px rgba(42,42,35,.04), 0 24px 60px rgba(42,42,35,.10);
-    --serif: 'Fraunces', Georgia, serif;
-    --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    --mono: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
-    --cn: 'Noto Serif SC', 'Fraunces', serif;
+    --bg: #e8eef0;
+    --bg-deep: #d6e2e3;
+    --bg-card: #fbfaf3;
+    --ink: #28383d;
+    --ink-soft: #586a6c;
+    --ink-muted: #93a2a1;
+    --accent: #3f7d6e;          /* Ghibli teal-green */
+    --accent-deep: #2c5d52;
+    --accent-soft: #c2dcd4;
+    --gold: #d99a5b;            /* Shinkai golden hour */
+    --gold-deep: #b9743a;
+    --sky: #9cc2d4;             /* soft sky */
+    --line: rgba(40, 56, 61, 0.13);
+    --line-soft: rgba(40, 56, 61, 0.07);
+    --shadow: 0 2px 8px rgba(40,56,61,.06), 0 12px 30px rgba(40,56,61,.08);
+    --shadow-lg: 0 4px 12px rgba(40,56,61,.08), 0 28px 56px rgba(40,56,61,.14);
+    --serif: 'Newsreader', Georgia, serif;
+    --sans: 'Mulish', -apple-system, BlinkMacSystemFont, sans-serif;
+    --mono: 'Mulish', sans-serif;
+    --cn: 'Noto Serif SC', serif;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
@@ -49,14 +51,14 @@
   /* ========================================================
      ATMOSPHERE — subtle, not intrusive
      ======================================================== */
-  /* Soft tea-ceremony grain — cool greenish neutral */
+  /* Luminous Shinkai sky gradient — sky to meadow */
   .grid-bg {
     position: fixed;
     inset: 0;
     z-index: -1;
     pointer-events: none;
-    opacity: 0.6;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.16 0 0 0 0 0.16 0 0 0 0 0.13 0 0 0 0.08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 1;
+    background: linear-gradient(180deg, #d4e6ec 0%, #e4ecec 38%, #f0ece0 100%);
   }
   .wash {
     position: fixed;
@@ -70,12 +72,12 @@
     filter: blur(80px);
   }
   .wash-1 {
-    top: -25vh; right: -15vw;
-    background: radial-gradient(circle at 40% 40%, rgba(110, 90, 63, 0.13), transparent 60%);
+    top: -20vh; right: -10vw;
+    background: radial-gradient(circle at 50% 40%, rgba(217, 154, 91, 0.20), transparent 62%);
   }
   .wash-2 {
-    bottom: -25vh; left: -15vw;
-    background: radial-gradient(circle at 60% 50%, rgba(138, 148, 118, 0.16), transparent 60%);
+    bottom: -22vh; left: -12vw;
+    background: radial-gradient(circle at 60% 50%, rgba(156, 194, 212, 0.28), transparent 62%);
   }
 
   /* ========================================================
@@ -85,25 +87,26 @@
     position: sticky;
     top: 0;
     width: 100%;
-    padding: 22px 56px;
+    padding: 18px 56px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 100;
-    background: rgba(236, 237, 240, 0.85);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    background: rgba(247, 250, 249, 0.82);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--line);
   }
   .logo {
     font-family: var(--serif);
     font-weight: 500;
-    font-size: 16.5px;
-    letter-spacing: 0.005em;
+    font-size: 19px;
+    letter-spacing: 0.01em;
     cursor: pointer;
     display: flex;
     align-items: baseline;
-    gap: 12px;
+    gap: 10px;
+    color: var(--ink);
   }
   .logo .cn {
     font-family: var(--cn);
@@ -305,35 +308,38 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 11px 18px;
-    background: var(--ink);
-    color: var(--bg-card);
+    padding: 12px 22px;
+    background: var(--accent);
+    color: #ffffff;
     text-decoration: none;
     font-family: var(--sans);
-    font-size: 11.5px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    border-radius: 2px;
-    border: 1px solid var(--ink);
-    transition: all 0.25s ease;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    border-radius: 999px;
+    border: 1px solid var(--accent);
+    transition: all 0.3s ease;
     cursor: pointer;
+    box-shadow: 0 4px 14px rgba(63,125,110,0.22);
   }
   .cta-button:hover {
-    background: var(--accent);
-    border-color: var(--accent);
-    transform: translateY(-1px);
+    background: var(--accent-deep);
+    border-color: var(--accent-deep);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(63,125,110,0.30);
   }
   .cta-button.outline {
-    background: transparent;
-    color: var(--ink);
-    border: 1px solid rgba(26,26,31,0.20);
+    background: rgba(255,255,255,0.55);
+    color: var(--accent-deep);
+    border: 1px solid var(--accent);
+    box-shadow: none;
   }
   .cta-button.outline:hover {
-    background: var(--ink);
-    color: var(--bg-card);
-    border-color: var(--ink);
-    transform: translateY(-1px);
+    background: var(--accent-soft);
+    color: var(--accent-deep);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(63,125,110,0.16);
   }
   .cta-button .arrow {
     font-size: 0.95em;
@@ -351,9 +357,10 @@
   .profile-photo {
     aspect-ratio: 4 / 5;
     background:
-      radial-gradient(circle at 25% 20%, rgba(255,255,255,0.4), transparent 55%),
-      linear-gradient(160deg, #d8dbc8 0%, #b8a980 100%);
-    border-radius: 3px;
+      radial-gradient(circle at 28% 22%, rgba(255,255,255,0.5), transparent 55%),
+      linear-gradient(165deg, #aacfde 0%, #d99a5b 100%);
+    border-radius: 20px;
+    border: 5px solid #ffffff;
     position: relative;
     overflow: hidden;
     display: flex;
@@ -364,22 +371,24 @@
   .profile-photo::before {
     content: '';
     position: absolute;
-    top: 14px;
-    left: 14px;
-    width: 36px;
-    height: 36px;
-    border-top: 2px solid var(--accent);
-    border-left: 2px solid var(--accent);
+    top: 16px;
+    left: 16px;
+    width: 34px;
+    height: 34px;
+    border-top: 3px solid rgba(255,255,255,0.85);
+    border-left: 3px solid rgba(255,255,255,0.85);
+    border-radius: 8px 0 0 0;
   }
   .profile-photo::after {
     content: '';
     position: absolute;
-    bottom: 14px;
-    right: 14px;
-    width: 36px;
-    height: 36px;
-    border-bottom: 2px solid var(--accent);
-    border-right: 2px solid var(--accent);
+    bottom: 16px;
+    right: 16px;
+    width: 34px;
+    height: 34px;
+    border-bottom: 3px solid rgba(255,255,255,0.85);
+    border-right: 3px solid rgba(255,255,255,0.85);
+    border-radius: 0 0 8px 0;
   }
   .profile-photo img {
     position: absolute;
@@ -390,11 +399,11 @@
   }
   .profile-photo .initials {
     font-family: var(--serif);
-    font-style: italic;
-    font-weight: 300;
-    font-size: 110px;
-    color: rgba(26, 26, 31, 0.16);
-    letter-spacing: -0.05em;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 96px;
+    color: rgba(255, 255, 255, 0.92);
+    letter-spacing: -0.03em;
     line-height: 1;
   }
   .profile-photo-tag {
@@ -403,7 +412,7 @@
     left: 16px;
     font-family: var(--mono);
     font-size: 9px;
-    color: rgba(26, 26, 31, 0.45);
+    color: rgba(255, 255, 255, 0.8);
     letter-spacing: 0.22em;
     text-transform: uppercase;
   }
@@ -413,7 +422,7 @@
     right: 16px;
     font-family: var(--mono);
     font-size: 9px;
-    color: rgba(26, 26, 31, 0.45);
+    color: rgba(255, 255, 255, 0.8);
     letter-spacing: 0.22em;
     text-transform: uppercase;
   }
@@ -659,8 +668,8 @@
   .research-icon {
     width: 64px;
     height: 64px;
-    border: 1px solid var(--line);
-    border-radius: 4px;
+    border: 2px solid var(--accent-soft);
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -707,14 +716,15 @@
   }
   .research-tags { display: flex; flex-wrap: wrap; gap: 6px; }
   .tag {
-    font-family: var(--mono);
-    font-size: 10.5px;
-    letter-spacing: 0.05em;
-    padding: 4px 10px;
-    border: 1px solid var(--line);
-    border-radius: 2px;
-    color: var(--ink-soft);
-    background: var(--bg-card);
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.02em;
+    padding: 5px 13px;
+    border: none;
+    border-radius: 999px;
+    color: var(--accent-deep);
+    background: var(--accent-soft);
   }
 
   /* ========================================================
@@ -943,15 +953,15 @@
   }
   .pub-authors strong { color: var(--ink); font-weight: 700; }
   .pub-status {
-    font-family: var(--mono);
+    font-family: var(--sans);
     font-size: 10.5px;
-    letter-spacing: 0.08em;
-    color: var(--accent-deep);
-    background: rgba(110, 90, 63, 0.14);
-    padding: 4px 10px;
-    border-radius: 2px;
+    letter-spacing: 0.04em;
+    color: #ffffff;
+    background: var(--accent);
+    padding: 5px 12px;
+    border-radius: 999px;
     white-space: nowrap;
-    font-weight: 500;
+    font-weight: 700;
   }
 
   /* ========================================================
@@ -964,9 +974,9 @@
   }
   .working-card {
     background: var(--bg-card);
-    border: 1px solid var(--line-soft);
-    border-radius: 4px;
-    padding: 32px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 30px 32px;
     transition: transform 0.35s ease, box-shadow 0.35s ease;
     position: relative;
     overflow: hidden;
@@ -975,18 +985,18 @@
     content: '';
     position: absolute;
     top: 0; left: 0;
-    width: 3px;
-    height: 100%;
-    background: var(--accent);
-    transform: scaleY(0);
-    transform-origin: top;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--accent));
+    transform: scaleX(0);
+    transform-origin: left;
     transition: transform 0.5s ease;
   }
   .working-card:hover {
     transform: translateY(-3px);
     box-shadow: var(--shadow-lg);
   }
-  .working-card:hover::before { transform: scaleY(1); }
+  .working-card:hover::before { transform: scaleX(1); }
   .working-card .corner-mark {
     position: absolute;
     top: 14px;
@@ -1038,8 +1048,8 @@
   }
   .beyond-card {
     background: var(--bg-card);
-    border: 1px solid var(--line-soft);
-    border-radius: 4px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
     overflow: hidden;
     transition: transform 0.35s ease, box-shadow 0.35s ease;
     box-shadow: var(--shadow);
@@ -1056,9 +1066,9 @@
     position: relative;
     overflow: hidden;
   }
-  .beyond-visual.cats { background: linear-gradient(150deg, #b8856a 0%, #6e4d3a 100%); }     /* warm tea/clay */
-  .beyond-visual.travel { background: linear-gradient(150deg, #9aa580 0%, #5e6a4a 100%); }   /* deep celadon */
-  .beyond-visual.fun { background: linear-gradient(150deg, #c8b078 0%, #8a7544 100%); }      /* tea gold */
+  .beyond-visual.cats { background: linear-gradient(160deg, #f0b878 0%, #c9663f 100%); }     /* golden hour */
+  .beyond-visual.travel { background: linear-gradient(160deg, #aacfde 0%, #4f7e9c 100%); }   /* Shinkai sky */
+  .beyond-visual.fun { background: linear-gradient(160deg, #9fbb86 0%, #557a5c 100%); }      /* Ghibli meadow */
   .beyond-visual::after {
     content: '';
     position: absolute;
@@ -1303,8 +1313,8 @@
         </div>
         <div class="cta-row">
           <a href="mailto:mij4018@med.cornell.edu" class="cta-button">Email <span class="arrow">↗</span></a>
-          <a href="#" class="cta-button outline">CV (PDF) <span class="arrow">↗</span></a>
-          <a href="#" class="cta-button outline">Google Scholar <span class="arrow">↗</span></a>
+          <a href="https://scholar.google.com/citations?user=LdT6k_QAAAAJ&hl=en" target="_blank" rel="noopener" class="cta-button outline">Google Scholar <span class="arrow">↗</span></a>
+          <a href="https://www.linkedin.com/in/andiejiam/" target="_blank" rel="noopener" class="cta-button outline">LinkedIn <span class="arrow">↗</span></a>
         </div>
       </div>
 
@@ -1314,9 +1324,8 @@
            Or keep the placeholder until you have a photo. -->
       <div class="hero-photo">
         <div class="profile-photo">
-          <span class="profile-photo-meta">2025</span>
           <div class="initials">MJ</div>
-          <span class="profile-photo-tag">Portrait · Add photo</span>
+          <img src="https://lh3.googleusercontent.com/sitesv/AA5AbUA_Zx5pUu46i_gAXUauk_D_YDpKJQMSxrjW6a114_H8Dfc1Oc4JXoFaTPUGvlwGNKHLwTGVN5nrTM1KyT2Vgzkz7ajDWjI7jpdjZc4zyBmh1Uh5wldTw0I0jCp1m_mVefaZUmcHwfz7Cj6DyONp3g9GiIKI8U-qNJmKxRAAmN7hfU-Ez84rOKHsrazmzd85FJagGuKGVInenL3S8YNC3yVHuIpiJHnpXL_icMc=w1280" alt="Miaoqing Jia" />
         </div>
       </div>
     </section>
@@ -1403,7 +1412,7 @@
 
         <div class="pull-quote">Insurance design isn't a backdrop — it's an intervention that decides who gets care.</div>
 
-        <p>I'm preparing a K99/R00 application on insurance coverage transitions and medication access. My doctoral work, in a different vein, developed theoretical models of pharmaceutical market structures and antibiotic resistance.</p>
+        <p>I'm preparing a K99/R00 application centered on Chronic Condition Special Needs Plans (C-SNPs) and access to care for beneficiaries with complex chronic conditions. My doctoral work, in a different vein, developed theoretical models of pharmaceutical market structures and antibiotic resistance.</p>
       </div>
       <aside>
         <div class="timeline">
@@ -1544,12 +1553,12 @@
       <span class="stroke"></span>
     </div>
     <h2 class="page-title">Papers and working drafts.</h2>
-    <p class="page-subtitle">Under review, in progress, in preparation.</p>
+    <p class="page-subtitle">Published, under review, and in progress.</p>
 
     <div class="pub-section">
       <h3 class="pub-section-title">
         <span class="label">Published &amp; Forthcoming</span>
-        <span class="count">/ 02</span>
+        <span class="count">/ 03</span>
         <span class="stroke"></span>
       </h3>
       <div class="pub-item">
@@ -1564,9 +1573,17 @@
         <div class="pub-num">02</div>
         <div class="pub-content">
           <h4 class="pub-title">Antibiotic Resistance, Drug Prices, and Entry</h4>
-          <p class="pub-authors"><strong>Jia, M.</strong>, & Ma, C.-T. A. · <em>Economics &amp; Human Biology</em></p>
+          <p class="pub-authors"><strong>Jia, M.</strong>, & Ma, C.-T. A. · <em>Economics &amp; Human Biology</em> · Job Market Paper</p>
         </div>
         <span class="pub-status">Forthcoming</span>
+      </div>
+      <div class="pub-item">
+        <div class="pub-num">03</div>
+        <div class="pub-content">
+          <h4 class="pub-title">Do the Timeliness, Regularity, and Intensity of Online Work Habits Predict Academic Performance?</h4>
+          <p class="pub-authors"><strong>Jia, M.</strong>, & Dvorak, T.</p>
+        </div>
+        <span class="pub-status">Published</span>
       </div>
     </div>
 
@@ -1609,46 +1626,98 @@
     <div class="pub-section">
       <h3 class="pub-section-title">
         <span class="label">Working Papers</span>
-        <span class="count">/ 02</span>
+        <span class="count">/ 09</span>
         <span class="stroke"></span>
       </h3>
       <div class="pub-item">
         <div class="pub-num">01</div>
         <div class="pub-content">
-          <h4 class="pub-title">Nurse Practitioner and Physician Assistant Prescribing of GLP-1 Agonists to Older Adults, 2013–2023</h4>
-          <p class="pub-authors"><strong>Jia, M.</strong>, & Zhang, Y., et al.</p>
+          <h4 class="pub-title">Association between Enrollment in Integrated Special Needs Plans and Acute Care Utilization among Dual Eligibles with Serious Mental Illnesses</h4>
+          <p class="pub-authors">Zhang, Y., <strong>Jia, M.</strong>, Daumit, G.L., Zhang, M., & McGinty, E.E.</p>
+          <details class="pub-abstract">
+            <summary>Abstract</summary>
+            <div class="abstract-body">
+              <p><strong>Question.</strong> Is enrollment in integrated dual eligible special needs plans (D-SNPs) associated with lower acute care utilization among dual eligibles with serious mental illness (SMI)?</p>
+              <p><strong>Findings.</strong> In a retrospective cohort of 349,163 dual eligibles with SMI in 2022, enrollment in highly integrated D-SNPs (HIDE-SNPs) was associated with a significantly lower likelihood of overall, psychiatric, and preventable hospitalization compared with traditional Medicare and standard Medicare Advantage plans.</p>
+            </div>
+          </details>
         </div>
         <span class="pub-status">2026</span>
       </div>
       <div class="pub-item">
         <div class="pub-num">02</div>
         <div class="pub-content">
+          <h4 class="pub-title">Characterizing Patient Trajectories after Hospice Live Discharge among Medicare Beneficiaries</h4>
+          <p class="pub-authors">Li, H., <strong>Jia, M.</strong>, & Zhang, Y.</p>
+        </div>
+        <span class="pub-status">2026</span>
+      </div>
+      <div class="pub-item">
+        <div class="pub-num">03</div>
+        <div class="pub-content">
+          <h4 class="pub-title">Changes in GLP-1 Receptor Agonist Use at the Commercial-to-Medicare Transition</h4>
+          <p class="pub-authors"><strong>Jia, M.</strong>, et al. · Research letter</p>
+        </div>
+        <span class="pub-status">2026</span>
+      </div>
+      <div class="pub-item">
+        <div class="pub-num">04</div>
+        <div class="pub-content">
+          <h4 class="pub-title">GLP-1 Receptor Agonist Pharmacy Claim Denials between 2013 and 2024: A National Multi-Payer Study</h4>
+          <p class="pub-authors"><strong>Jia, M.</strong>, et al.</p>
+          <details class="pub-abstract">
+            <summary>Abstract</summary>
+            <div class="abstract-body">
+              <p><strong>Importance.</strong> GLP-1 receptor agonists have transformed the management of obesity and type 2 diabetes, but real-world access remains limited by insurance coverage barriers; patient-level pharmacy claim denial across payer types has not been systematically characterized.</p>
+              <p><strong>Objective.</strong> To characterize GLP-1 RA pharmacy claim denial patterns across commercial, Medicare, and Medicaid coverage from 2013 through 2024 and identify factors independently associated with denial.</p>
+              <p><strong>Design &amp; Setting.</strong> Retrospective cohort study of longitudinal pharmacy and medical claims using the Inovalon MORE2 Registry, a national multi-payer database covering more than 200 million beneficiaries.</p>
+              <p><strong>Participants.</strong> 3,487,957 members with at least one GLP-1 RA pharmacy claim during 2013–2024.</p>
+              <p><strong>Results.</strong> Among 3,487,286 members, 440,318 (12.6%) experienced at least one denied claim, and only 29.8% subsequently obtained a paid fill. Pooled denial rates differed by payer: Medicaid 20.5%, commercial 8.7%, Medicare 6.4%. Medicaid enrollment was associated with 2.95-fold higher odds of denial than commercial coverage.</p>
+              <p><strong>Conclusions.</strong> GLP-1 RA pharmacy claim denial concentrates at treatment initiation and disproportionately affects Medicaid enrollees, suggesting formulary restrictions function as access gatekeepers rather than continuation barriers.</p>
+            </div>
+          </details>
+        </div>
+        <span class="pub-status">2026</span>
+      </div>
+      <div class="pub-item">
+        <div class="pub-num">05</div>
+        <div class="pub-content">
+          <h4 class="pub-title">Disruption of GLP-1 Treatment Continuity at the Insurance Transition: Acute Formulary Shock in Medicare and Chronic Access Barriers in Medicaid, 2013–2024</h4>
+          <p class="pub-authors"><strong>Jia, M.</strong>, et al. · Research letter</p>
+        </div>
+        <span class="pub-status">2026</span>
+      </div>
+      <div class="pub-item">
+        <div class="pub-num">06</div>
+        <div class="pub-content">
+          <h4 class="pub-title">The Effectiveness of the Health System Reform on Affecting Self-Medication in China</h4>
+          <p class="pub-authors"><strong>Jia, M.</strong></p>
+        </div>
+        <span class="pub-status">Working Paper</span>
+      </div>
+      <div class="pub-item">
+        <div class="pub-num">07</div>
+        <div class="pub-content">
+          <h4 class="pub-title">Informal Gift Exchange in the Public Health Sector</h4>
+          <p class="pub-authors"><strong>Jia, M.</strong></p>
+        </div>
+        <span class="pub-status">Working Paper</span>
+      </div>
+      <div class="pub-item">
+        <div class="pub-num">08</div>
+        <div class="pub-content">
           <h4 class="pub-title">Addressing the Externalities of Medicine Overconsumption</h4>
           <p class="pub-authors"><strong>Jia, M.</strong></p>
         </div>
         <span class="pub-status">2025</span>
       </div>
-    </div>
-
-    <div class="pub-section">
-      <h3 class="pub-section-title">
-        <span class="label">In Preparation</span>
-        <span class="count">/ 02</span>
-        <span class="stroke"></span>
-      </h3>
       <div class="pub-item">
-        <div class="pub-num">01</div>
+        <div class="pub-num">09</div>
         <div class="pub-content">
-          <h4 class="pub-title">Association between Enrollment in Integrated Dual Eligible Special Needs Plans and Quality and Utilization of Healthcare among Dual Eligibles with Serious Mental Illnesses</h4>
-          <p class="pub-authors">Zhang, Y., McGinty, E.E., <strong>Jia, M.</strong>, et al.</p>
+          <h4 class="pub-title">A New Trigger for Credit Card Misuse during Economic Downturns</h4>
+          <p class="pub-authors"><strong>Jia, M.</strong>, & Wang, P.</p>
         </div>
-      </div>
-      <div class="pub-item">
-        <div class="pub-num">02</div>
-        <div class="pub-content">
-          <h4 class="pub-title">Using Machine Learning to Characterize Patient Trajectories after Hospice Live Discharge among Medicare Beneficiaries</h4>
-          <p class="pub-authors">Li, H., <strong>Jia, M.</strong>, & Zhang, Y.</p>
-        </div>
+        <span class="pub-status">Working Paper</span>
       </div>
     </div>
   </div>
@@ -1691,8 +1760,8 @@
       <div class="working-card">
         <span class="corner-mark">/05</span>
         <div class="working-status"><span class="live-dot"></span>Planning</div>
-        <h3 class="working-title">K99/R00 — Insurance coverage transitions and medication access</h3>
-        <p class="working-desc">Building toward an independent research program on how insurance coverage policies and transitions affect medication access for chronic conditions — with a particular focus on GLP-1 access and behavioral health populations.</p>
+        <h3 class="working-title">K99/R00 — Chronic Condition Special Needs Plans (C-SNPs) and access to care</h3>
+        <p class="working-desc">Building toward an independent research program centered on Chronic Condition Special Needs Plans (C-SNPs) — how this less-studied corner of the Medicare landscape shapes enrollment, utilization, and access to care for beneficiaries with complex chronic conditions.</p>
       </div>
       <div class="working-card">
         <span class="corner-mark">/06</span>
@@ -1719,9 +1788,9 @@
           <svg viewBox="0 0 100 100" fill="currentColor"><use href="#ico-cat"/></svg>
         </div>
         <div class="beyond-content">
-          <div class="beyond-eyebrow">Furry coauthors</div>
-          <h3 class="beyond-title">The cats</h3>
-          <p class="beyond-text">My most loyal research assistants — they don't read drafts, but they sit on them. <em>Vital contributors</em> to thinking-time and to the warmth of any home office.</p>
+          <div class="beyond-eyebrow">Furry coauthor</div>
+          <h3 class="beyond-title">Lemon</h3>
+          <p class="beyond-text">I adopted <em>Lemon</em> — a lively tabby boy — in April 2021. My most loyal research assistant: he doesn't read drafts, but he sits on them. Say "Happy Birthday, Meow" on June 8.</p>
         </div>
       </div>
       <div class="beyond-card">
@@ -1772,11 +1841,11 @@
       </div>
       <div class="contact-row">
         <div class="contact-label">Google Scholar</div>
-        <div class="contact-value"><a href="#">— add link —</a></div>
+        <div class="contact-value"><a href="https://scholar.google.com/citations?user=LdT6k_QAAAAJ&hl=en" target="_blank" rel="noopener">scholar.google.com/citations</a></div>
       </div>
       <div class="contact-row">
         <div class="contact-label">LinkedIn</div>
-        <div class="contact-value"><a href="#">— add link —</a></div>
+        <div class="contact-value"><a href="https://www.linkedin.com/in/andiejiam/" target="_blank" rel="noopener">linkedin.com/in/andiejiam</a></div>
       </div>
       <div class="contact-row">
         <div class="contact-label">CV</div>
