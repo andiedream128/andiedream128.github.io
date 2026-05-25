@@ -1263,6 +1263,83 @@
   }
   .hobby-block p { font-size: 14.5px; color: var(--ink-soft); line-height: 1.7; }
   .hobby-block a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-soft); }
+
+  /* Quiet hours — editorial chapters with collage */
+  .quiet-chapter {
+    padding: 44px 0;
+    border-top: 1px solid var(--line-soft);
+  }
+  .quiet-chapter:first-of-type { border-top: none; padding-top: 14px; }
+  .quiet-head {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 14px;
+  }
+  .quiet-idx {
+    font-family: var(--mono, monospace);
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+  }
+  .quiet-title {
+    font-family: var(--serif);
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--ink);
+    margin: 0;
+    line-height: 1.05;
+  }
+  .quiet-since {
+    font-family: var(--sans);
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: var(--ink-muted);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 3px 11px;
+  }
+  .quiet-note {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 17.5px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    max-width: 640px;
+    margin: 0 0 28px;
+  }
+  .quiet-note a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-soft); font-style: normal; }
+  .quiet-photos {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: 150px;
+    gap: 14px;
+  }
+  .quiet-photos a {
+    display: block;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--line-soft);
+  }
+  .quiet-photos img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(.2,.7,.3,1);
+  }
+  .quiet-photos a:hover img { transform: scale(1.07); }
+  .quiet-photos a:nth-child(1) { grid-column: span 3; grid-row: span 2; }
+  .quiet-photos a:nth-child(2) { grid-column: span 3; grid-row: span 1; }
+  .quiet-photos a:nth-child(3) { grid-column: span 2; grid-row: span 1; }
+  .quiet-photos a:nth-child(4) { grid-column: span 1; grid-row: span 1; }
+  @media (max-width: 880px) {
+    .quiet-photos { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 130px; }
+    .quiet-photos a:nth-child(n) { grid-column: span 1; grid-row: span 1; }
+    .quiet-photos a:nth-child(1) { grid-column: span 2; grid-row: span 1; }
+  }
   .photo-row {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -2334,34 +2411,42 @@
     <h2 class="page-title">The parts that don't fit on a CV.</h2>
     <p class="page-subtitle">The same care I bring to a research design, I bring to a Sunday loaf or a bouquet.</p>
 
-    <div class="hobby-block">
-      <h3>Writing</h3>
-      <div>
-        <p>Creative writing is where I think without a regression table. Selected pieces — <a href="#">coming soon (TBD)</a>.</p>
+    <div class="quiet-chapter">
+      <div class="quiet-head">
+        <span class="quiet-idx">01</span>
+        <h3 class="quiet-title">Writing</h3>
+        <span class="quiet-since">prose &amp; poetry</span>
+      </div>
+      <p class="quiet-note">Creative writing is where I think without a regression table — the place ideas go before they become evidence. Selected pieces, <a href="#">coming soon</a>.</p>
+    </div>
+
+    <div class="quiet-chapter">
+      <div class="quiet-head">
+        <span class="quiet-idx">02</span>
+        <h3 class="quiet-title">Cooking &amp; baking</h3>
+        <span class="quiet-since">since 2017</span>
+      </div>
+      <p class="quiet-note">Bread, pastries, and the occasional ambitious cake. Nothing brings smiles to a table faster than something still warm from the oven.</p>
+      <div class="quiet-photos">
+        <a href="images/food/0becc84a8eb1798178fd2af60c82aaa6.jpg" target="_blank" rel="noopener"><img src="images/food/0becc84a8eb1798178fd2af60c82aaa6.jpg" alt="Cooking and baking" loading="lazy"/></a>
+        <a href="images/food/3f7ec5eb48fdb9997928b49a4b1b3cd2.jpg" target="_blank" rel="noopener"><img src="images/food/3f7ec5eb48fdb9997928b49a4b1b3cd2.jpg" alt="Cooking and baking" loading="lazy"/></a>
+        <a href="images/food/4b39f3ae9efac23bdcc8244147ec8525.jpg" target="_blank" rel="noopener"><img src="images/food/4b39f3ae9efac23bdcc8244147ec8525.jpg" alt="Cooking and baking" loading="lazy"/></a>
+        <a href="images/food/5c496d94004325e053d05bbe7e6fed4b.jpg" target="_blank" rel="noopener"><img src="images/food/5c496d94004325e053d05bbe7e6fed4b.jpg" alt="Cooking and baking" loading="lazy"/></a>
       </div>
     </div>
-    <div class="hobby-block">
-      <h3>Cooking &amp; baking</h3>
-      <div>
-        <p>Baking since 2017 — bread, pastries, and the occasional ambitious cake. Nothing brings smiles to a table faster.</p>
-        <div class="trip-gallery">
-          <a href="images/food/0becc84a8eb1798178fd2af60c82aaa6.jpg" target="_blank" rel="noopener"><img src="images/food/0becc84a8eb1798178fd2af60c82aaa6.jpg" alt="Cooking and baking" loading="lazy"/></a>
-          <a href="images/food/3f7ec5eb48fdb9997928b49a4b1b3cd2.jpg" target="_blank" rel="noopener"><img src="images/food/3f7ec5eb48fdb9997928b49a4b1b3cd2.jpg" alt="Cooking and baking" loading="lazy"/></a>
-          <a href="images/food/4b39f3ae9efac23bdcc8244147ec8525.jpg" target="_blank" rel="noopener"><img src="images/food/4b39f3ae9efac23bdcc8244147ec8525.jpg" alt="Cooking and baking" loading="lazy"/></a>
-          <a href="images/food/5c496d94004325e053d05bbe7e6fed4b.jpg" target="_blank" rel="noopener"><img src="images/food/5c496d94004325e053d05bbe7e6fed4b.jpg" alt="Cooking and baking" loading="lazy"/></a>
-        </div>
+
+    <div class="quiet-chapter">
+      <div class="quiet-head">
+        <span class="quiet-idx">03</span>
+        <h3 class="quiet-title">Floristry</h3>
+        <span class="quiet-since">since 2020</span>
       </div>
-    </div>
-    <div class="hobby-block">
-      <h3>Floristry</h3>
-      <div>
-        <p>Arranging flowers since 2020 — small arrangements that bring spring to a winter desk.</p>
-        <div class="trip-gallery">
-          <a href="images/flowers/53c8ac1192cdadcf9200f8a11f6e147b.jpg" target="_blank" rel="noopener"><img src="images/flowers/53c8ac1192cdadcf9200f8a11f6e147b.jpg" alt="Floral arrangement" loading="lazy"/></a>
-          <a href="images/flowers/58f0257a0be35683992eda8a154a358f.jpg" target="_blank" rel="noopener"><img src="images/flowers/58f0257a0be35683992eda8a154a358f.jpg" alt="Floral arrangement" loading="lazy"/></a>
-          <a href="images/flowers/c0f036226b803f9712c2521289aad48c.jpg" target="_blank" rel="noopener"><img src="images/flowers/c0f036226b803f9712c2521289aad48c.jpg" alt="Floral arrangement" loading="lazy"/></a>
-          <a href="images/flowers/db547b6c6aa759c05c3d180f78153c29.jpg" target="_blank" rel="noopener"><img src="images/flowers/db547b6c6aa759c05c3d180f78153c29.jpg" alt="Floral arrangement" loading="lazy"/></a>
-        </div>
+      <p class="quiet-note">Small arrangements that bring a little spring to a winter desk — the same eye for balance I use in a figure, applied to stems and color.</p>
+      <div class="quiet-photos">
+        <a href="images/flowers/53c8ac1192cdadcf9200f8a11f6e147b.jpg" target="_blank" rel="noopener"><img src="images/flowers/53c8ac1192cdadcf9200f8a11f6e147b.jpg" alt="Floral arrangement" loading="lazy"/></a>
+        <a href="images/flowers/58f0257a0be35683992eda8a154a358f.jpg" target="_blank" rel="noopener"><img src="images/flowers/58f0257a0be35683992eda8a154a358f.jpg" alt="Floral arrangement" loading="lazy"/></a>
+        <a href="images/flowers/c0f036226b803f9712c2521289aad48c.jpg" target="_blank" rel="noopener"><img src="images/flowers/c0f036226b803f9712c2521289aad48c.jpg" alt="Floral arrangement" loading="lazy"/></a>
+        <a href="images/flowers/db547b6c6aa759c05c3d180f78153c29.jpg" target="_blank" rel="noopener"><img src="images/flowers/db547b6c6aa759c05c3d180f78153c29.jpg" alt="Floral arrangement" loading="lazy"/></a>
       </div>
     </div>
   </div>
