@@ -121,17 +121,33 @@
     background: radial-gradient(circle at 60% 50%, rgba(156, 194, 212, 0.28), transparent 62%);
   }
 
-  /* ===== Dusk mode (Shinkai golden hour) ===== */
+  /* ===== Dusk / moon mode (Shinkai twilight) ===== */
   .grid-bg, .wash-1, .wash-2 { transition: background 0.9s ease; }
+  body.dusk {
+    --ink: #f4ede1;
+    --ink-soft: #dbd2c4;
+    --ink-muted: #a99e8e;
+    --bg-card: rgba(40, 46, 72, 0.52);
+    --line: rgba(255,255,255,0.15);
+    --line-soft: rgba(255,255,255,0.08);
+    --accent: #ecb178;
+    --accent-deep: #f3c08c;
+    --accent-soft: rgba(236,177,120,0.30);
+  }
   body.dusk .grid-bg {
-    background: linear-gradient(180deg, #2d3a57 0%, #5b5277 34%, #b9728a 64%, #e7a866 100%);
+    background: linear-gradient(180deg, #242b46 0%, #3a3357 38%, #574a64 72%, #6a5358 100%);
   }
   body.dusk .wash-1 {
-    background: radial-gradient(circle at 50% 40%, rgba(231, 168, 102, 0.34), transparent 62%);
+    background: radial-gradient(circle at 50% 40%, rgba(231, 168, 102, 0.26), transparent 62%);
   }
   body.dusk .wash-2 {
-    background: radial-gradient(circle at 60% 50%, rgba(91, 82, 119, 0.40), transparent 62%);
+    background: radial-gradient(circle at 60% 50%, rgba(120, 108, 150, 0.34), transparent 62%);
   }
+  body.dusk nav { background: rgba(32, 38, 60, 0.74); border-bottom-color: rgba(255,255,255,0.12); }
+  body.dusk .cta-button { color: #2a2f47; }
+  body.dusk .cta-button.outline { background: rgba(255,255,255,0.08); color: var(--ink); }
+  body.dusk .pub-status { color: #2a2f47; }
+  body.dusk .pub-presented .pp-label { color: var(--accent-deep); }
 
   /* ===== Sky (day/dusk) toggle button ===== */
   .sky-toggle {
@@ -198,10 +214,8 @@
   .travel-map-wrap svg { display: block; width: 100%; height: auto; }
   .tm-pin { cursor: default; }
   .tm-dot { fill: var(--gold); }
-  .tm-ring { fill: none; stroke: var(--gold); stroke-width: 1.4; opacity: 0.55; transform-origin: center; animation: tmPulse 2.6s ease-in-out infinite; }
-  .tm-pin:nth-child(odd) .tm-ring { animation-delay: 0.8s; }
-  @keyframes tmPulse { 0%,100% { opacity: 0.15; r: 7; } 50% { opacity: 0.6; r: 12; } }
-  .tm-label { font-family: var(--sans); font-size: 12px; fill: var(--ink); font-weight: 600; }
+  .tm-ring { fill: none; stroke: var(--gold); stroke-width: 1.2; opacity: 0.4; }
+  .tm-label { font-family: var(--sans); font-size: 10.5px; fill: var(--ink); font-weight: 600; }
   body.dusk .tm-label { fill: #f3ece0; }
   .tm-land { fill: var(--accent); opacity: 0.13; }
   body.dusk .tm-land { fill: #f0e3d0; opacity: 0.12; }
@@ -2467,34 +2481,41 @@
     <h2 class="page-title">Places that surprised me.</h2>
     <p class="page-subtitle">I love road trips and the freedom of exploring the world at my own pace — travel is how I remember that my data is made of people.</p>
     <div class="travel-map-wrap">
-      <svg viewBox="0 0 1000 440" role="img" aria-label="Map of places I've travelled">
+      <svg viewBox="0 0 1000 520" role="img" aria-label="Map of countries and cities I've travelled">
         <!-- soft continents -->
         <g>
-          <ellipse class="tm-land" cx="250" cy="120" rx="95" ry="70"/>
-          <ellipse class="tm-land" cx="320" cy="295" rx="52" ry="86"/>
-          <ellipse class="tm-land" cx="520" cy="120" rx="52" ry="44"/>
-          <ellipse class="tm-land" cx="545" cy="255" rx="66" ry="92"/>
-          <ellipse class="tm-land" cx="725" cy="140" rx="130" ry="82"/>
-          <ellipse class="tm-land" cx="855" cy="320" rx="66" ry="42"/>
+          <ellipse class="tm-land" cx="250" cy="142" rx="95" ry="83"/>
+          <ellipse class="tm-land" cx="320" cy="348" rx="52" ry="101"/>
+          <ellipse class="tm-land" cx="520" cy="142" rx="52" ry="52"/>
+          <ellipse class="tm-land" cx="545" cy="301" rx="66" ry="108"/>
+          <ellipse class="tm-land" cx="725" cy="165" rx="130" ry="97"/>
+          <ellipse class="tm-land" cx="855" cy="378" rx="66" ry="50"/>
         </g>
         <!-- grid -->
         <g>
-          <line class="tm-grid" x1="0" y1="110" x2="1000" y2="110"/>
-          <line class="tm-grid" x1="0" y1="220" x2="1000" y2="220"/>
-          <line class="tm-grid" x1="0" y1="330" x2="1000" y2="330"/>
-          <line class="tm-grid" x1="250" y1="0" x2="250" y2="440"/>
-          <line class="tm-grid" x1="500" y1="0" x2="500" y2="440"/>
-          <line class="tm-grid" x1="750" y1="0" x2="750" y2="440"/>
+          <line class="tm-grid" x1="0" y1="130" x2="1000" y2="130"/>
+          <line class="tm-grid" x1="0" y1="260" x2="1000" y2="260"/>
+          <line class="tm-grid" x1="0" y1="390" x2="1000" y2="390"/>
+          <line class="tm-grid" x1="250" y1="0" x2="250" y2="520"/>
+          <line class="tm-grid" x1="500" y1="0" x2="500" y2="520"/>
+          <line class="tm-grid" x1="750" y1="0" x2="750" y2="520"/>
         </g>
-        <!-- travel path -->
-        <path class="tm-path" d="M294 120 L311 269 L62 169 L883 132 L836 162 L806 225"/>
-        <!-- pins -->
-        <g class="tm-pin"><circle class="tm-ring" cx="294" cy="120" r="8"/><circle class="tm-dot" cx="294" cy="120" r="4"/><text class="tm-label" x="304" y="116">New York</text></g>
-        <g class="tm-pin"><circle class="tm-ring" cx="311" cy="269" r="8"/><circle class="tm-dot" cx="311" cy="269" r="4"/><text class="tm-label" x="321" y="285">South America</text></g>
-        <g class="tm-pin"><circle class="tm-ring" cx="62" cy="169" r="8"/><circle class="tm-dot" cx="62" cy="169" r="4"/><text class="tm-label" x="72" y="165">Hawaii</text></g>
-        <g class="tm-pin"><circle class="tm-ring" cx="883" cy="132" r="8"/><circle class="tm-dot" cx="883" cy="132" r="4"/><text class="tm-label" x="873" y="122" text-anchor="end">Japan</text></g>
-        <g class="tm-pin"><circle class="tm-ring" cx="836" cy="162" r="8"/><circle class="tm-dot" cx="836" cy="162" r="4"/><text class="tm-label" x="826" y="178" text-anchor="end">Taiwan</text></g>
-        <g class="tm-pin"><circle class="tm-ring" cx="806" cy="225" r="8"/><circle class="tm-dot" cx="806" cy="225" r="4"/><text class="tm-label" x="796" y="241" text-anchor="end">Bali &amp; Singapore</text></g>
+        <!-- pins: Americas -->
+        <g class="tm-pin"><circle class="tm-ring" cx="228" cy="147" r="6"/><circle class="tm-dot" cx="228" cy="147" r="3.2"/><text class="tm-label" x="220" y="151" text-anchor="end">USA</text></g>
+        <g class="tm-pin"><circle class="tm-ring" cx="303" cy="138" r="6"/><circle class="tm-dot" cx="303" cy="138" r="3.2"/><text class="tm-label" x="311" y="132">Boston</text></g>
+        <g class="tm-pin"><circle class="tm-ring" cx="294" cy="150" r="6"/><circle class="tm-dot" cx="294" cy="150" r="3.2"/><text class="tm-label" x="300" y="164">New York</text></g>
+        <g class="tm-pin"><circle class="tm-ring" cx="62" cy="199" r="6"/><circle class="tm-dot" cx="62" cy="199" r="3.2"/><text class="tm-label" x="70" y="203">Hawaii</text></g>
+        <g class="tm-pin"><circle class="tm-ring" cx="286" cy="295" r="6"/><circle class="tm-dot" cx="286" cy="295" r="3.2"/><text class="tm-label" x="278" y="291" text-anchor="end">Peru</text></g>
+        <g class="tm-pin"><circle class="tm-ring" cx="311" cy="308" r="6"/><circle class="tm-dot" cx="311" cy="308" r="3.2"/><text class="tm-label" x="319" y="312">Bolivia</text></g>
+        <g class="tm-pin"><circle class="tm-ring" cx="303" cy="355" r="6"/><circle class="tm-dot" cx="303" cy="355" r="3.2"/><text class="tm-label" x="311" y="359">Chile</text></g>
+        <g class="tm-pin"><circle class="tm-ring" cx="196" cy="338" r="6"/><circle class="tm-dot" cx="196" cy="338" r="3.2"/><text class="tm-label" x="188" y="342" text-anchor="end">Easter Island</text></g>
+        <!-- pins: Asia / Pacific -->
+        <g class="tm-pin"><circle class="tm-ring" cx="883" cy="156" r="6"/><circle class="tm-dot" cx="883" cy="156" r="3.2"/><text class="tm-label" x="873" y="151" text-anchor="end">Japan</text></g>
+        <g class="tm-pin"><circle class="tm-ring" cx="789" cy="159" r="6"/><circle class="tm-dot" cx="789" cy="159" r="3.2"/><text class="tm-label" x="781" y="153" text-anchor="end">China</text></g>
+        <g class="tm-pin"><circle class="tm-ring" cx="789" cy="172" r="6"/><circle class="tm-dot" cx="789" cy="172" r="3.2"/><text class="tm-label" x="781" y="184" text-anchor="end">Chengdu</text></g>
+        <g class="tm-pin"><circle class="tm-ring" cx="838" cy="188" r="6"/><circle class="tm-dot" cx="838" cy="188" r="3.2"/><text class="tm-label" x="846" y="192">Taipei</text></g>
+        <g class="tm-pin"><circle class="tm-ring" cx="788" cy="256" r="6"/><circle class="tm-dot" cx="788" cy="256" r="3.2"/><text class="tm-label" x="780" y="260" text-anchor="end">Singapore</text></g>
+        <g class="tm-pin"><circle class="tm-ring" cx="819" cy="284" r="6"/><circle class="tm-dot" cx="819" cy="284" r="3.2"/><text class="tm-label" x="827" y="288">Bali</text></g>
       </svg>
     </div>
     <div class="dest-list">
