@@ -184,6 +184,10 @@
     22% { opacity: 0.82; transform: rotate(var(--rot,0deg)) scale(1); }
     100% { opacity: 0; transform: rotate(var(--rot,0deg)) scale(1); }
   }
+  @media (prefers-reduced-motion: reduce) {
+    .trail-mark { display: none !important; }
+    *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  }
 
   /* ===== Travel map (real world map + pin overlay) ===== */
   .travel-map-wrap {
@@ -197,9 +201,10 @@
     padding: 20px 16px;
   }
   body.dusk .travel-map-wrap { background: linear-gradient(180deg, #46506e 0%, #7a5f7e 100%); }
-  .tm-frame { position: relative; line-height: 0; }
+  .tm-frame { position: relative; line-height: 0; aspect-ratio: 784 / 459; }
   .tm-base {
     width: 100%;
+    height: 100%;
     display: block;
     opacity: 0.42;
     filter: invert(48%) sepia(38%) saturate(430%) hue-rotate(118deg) brightness(86%);
@@ -1694,6 +1699,18 @@
     .cta-row { gap: 8px; }
     .cta-button { font-size: 10.5px; padding: 10px 14px; }
   }
+  @media (max-width: 480px) {
+    nav { padding: 13px 16px; }
+    .nav-links { gap: 9px 15px; }
+    .nav-links a { font-size: 10.5px; letter-spacing: 0.08em; }
+    .logo { font-size: 17px; }
+    .home-name { font-size: 40px; }
+    .hero-tagline { font-size: 16px; }
+    .page-title { font-size: 23px; }
+    main { padding: 30px 17px 54px; }
+    .travel-map-wrap { padding: 12px 9px; }
+    .quiet-photos { grid-auto-rows: 120px; }
+  }
 </style>
 </head>
 <body>
@@ -2810,6 +2827,7 @@
 
   // ===== Beyond cursor trails — each page leaves its own motif following the cursor =====
   (function(){
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const PAW = '<svg viewBox="0 0 24 24" fill="currentColor"><ellipse cx="12" cy="15.5" rx="5" ry="4.2"/><ellipse cx="6" cy="10.6" rx="2" ry="2.7"/><ellipse cx="10" cy="7.3" rx="2" ry="2.8"/><ellipse cx="14" cy="7.3" rx="2" ry="2.8"/><ellipse cx="18" cy="10.6" rx="2" ry="2.7"/></svg>';
     const PLANE = '<svg viewBox="0 0 28 28" fill="currentColor"><path d="M25 4 L3 13 L12 15.5 L14.5 24 L18 14.5 Z"/></svg>';
     const CLOVER = '<svg viewBox="0 0 28 28" fill="currentColor"><g><path d="M14 14 C9 9 9.2 4.6 12 4.9 C13.3 5.1 14 6.5 14 7.5 C14 6.5 14.7 5.1 16 4.9 C18.8 4.6 19 9 14 14 Z" transform="rotate(45 14 14)"/><path d="M14 14 C9 9 9.2 4.6 12 4.9 C13.3 5.1 14 6.5 14 7.5 C14 6.5 14.7 5.1 16 4.9 C18.8 4.6 19 9 14 14 Z" transform="rotate(135 14 14)"/><path d="M14 14 C9 9 9.2 4.6 12 4.9 C13.3 5.1 14 6.5 14 7.5 C14 6.5 14.7 5.1 16 4.9 C18.8 4.6 19 9 14 14 Z" transform="rotate(225 14 14)"/><path d="M14 14 C9 9 9.2 4.6 12 4.9 C13.3 5.1 14 6.5 14 7.5 C14 6.5 14.7 5.1 16 4.9 C18.8 4.6 19 9 14 14 Z" transform="rotate(315 14 14)"/></g></svg>';
