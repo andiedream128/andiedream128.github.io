@@ -10,7 +10,7 @@
 <meta name="robots" content="index, follow" />
 <meta name="keywords" content="Miaoqing Jia, 贾苗青, Andie Jia, health economist, Weill Cornell Medicine, health economics, health policy, industrial organization, applied microeconomics, Boston University economics" />
 <link rel="canonical" href="https://miaoqingjia.com/" />
-<link rel="icon" type="image/svg+xml" href="favicon.svg?v=4" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg?v=5" />
 <!-- Open Graph -->
 <meta property="og:type" content="profile" />
 <meta property="og:title" content="Miaoqing Jia | Health Economist · Weill Cornell Medicine" />
@@ -224,7 +224,8 @@
     opacity: 0.52;
     filter: invert(88%) sepia(18%) saturate(260%) hue-rotate(350deg) brightness(103%);
   }
-  .tm-pin { position: absolute; transform: translate(-50%, -50%); line-height: normal; }
+  .tm-pin { position: absolute; transform: translate(-50%, -50%); line-height: normal; cursor: pointer; }
+  .tm-pin::before { content: ''; position: absolute; left: 50%; top: 50%; width: 30px; height: 30px; transform: translate(-50%, -50%); border-radius: 50%; }
   .tm-pin .d {
     display: block; width: 9px; height: 9px; border-radius: 50%;
     background: var(--gold); box-shadow: 0 0 0 3px rgba(217,154,91,0.30);
@@ -254,10 +255,10 @@
     cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'><path d='M25 4 L3 13 L12 15.5 L14.5 24 L18 14.5 Z' fill='%233f7d6e'/><path d='M12 15.5 L25 4' fill='none' stroke='%23fbfaf3' stroke-width='0.8' opacity='0.65'/></svg>") 12 16, auto;
   }
   #offclock, #offclock * {
-    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'><g fill='%234a8a79'><path d='M14 14 C9.5 9.8 9.8 5 12.4 5 C13.6 5 14 6.3 14 7.2 C14 6.3 14.4 5 15.6 5 C18.2 5 18.5 9.8 14 14 Z'/><path d='M14 14 C9.5 9.8 9.8 5 12.4 5 C13.6 5 14 6.3 14 7.2 C14 6.3 14.4 5 15.6 5 C18.2 5 18.5 9.8 14 14 Z' transform='rotate(90 14 14)'/><path d='M14 14 C9.5 9.8 9.8 5 12.4 5 C13.6 5 14 6.3 14 7.2 C14 6.3 14.4 5 15.6 5 C18.2 5 18.5 9.8 14 14 Z' transform='rotate(180 14 14)'/><path d='M14 14 C9.5 9.8 9.8 5 12.4 5 C13.6 5 14 6.3 14 7.2 C14 6.3 14.4 5 15.6 5 C18.2 5 18.5 9.8 14 14 Z' transform='rotate(270 14 14)'/></g></svg>") 14 14, auto;
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'><path d='M14 14 Q14.6 21 17.5 26' fill='none' stroke='%234f9a78' stroke-width='1.6' stroke-linecap='round'/><g fill='%234f9a78'><path d='M14 14 C10.8 11 11 6.8 12.7 6.8 C13.6 6.8 14 7.8 14 8.6 C14 7.8 14.4 6.8 15.3 6.8 C17 6.8 17.2 11 14 14 Z' transform='rotate(45 14 14)'/><path d='M14 14 C10.8 11 11 6.8 12.7 6.8 C13.6 6.8 14 7.8 14 8.6 C14 7.8 14.4 6.8 15.3 6.8 C17 6.8 17.2 11 14 14 Z' transform='rotate(135 14 14)'/><path d='M14 14 C10.8 11 11 6.8 12.7 6.8 C13.6 6.8 14 7.8 14 8.6 C14 7.8 14.4 6.8 15.3 6.8 C17 6.8 17.2 11 14 14 Z' transform='rotate(225 14 14)'/><path d='M14 14 C10.8 11 11 6.8 12.7 6.8 C13.6 6.8 14 7.8 14 8.6 C14 7.8 14.4 6.8 15.3 6.8 C17 6.8 17.2 11 14 14 Z' transform='rotate(315 14 14)'/></g></svg>") 14 14, auto;
   }
   #music, #music * {
-    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'><path d='M6 16 V13 a8 8 0 0 1 16 0 V16' fill='none' stroke='%233f7d6e' stroke-width='2' stroke-linecap='round'/><rect x='3.8' y='15' width='4.4' height='8' rx='2.2' fill='%233f7d6e'/><rect x='19.8' y='15' width='4.4' height='8' rx='2.2' fill='%233f7d6e'/></svg>") 14 14, auto;
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'><g fill='%233f7d6e'><ellipse cx='10.5' cy='20' rx='4.6' ry='3.5'/><path d='M13.6 19.5 L13.6 6 L15.4 6 L15.4 19.5 Z'/><path d='M15.4 6 C19.2 7 21 10 19.4 13.6 C20.6 9.6 18.2 8 15.4 9.4 Z'/></g></svg>") 14 14, auto;
   }
 
   /* ========================================================
@@ -2825,7 +2826,7 @@
 
   // ===== Lemon paw-print easter egg =====
   (function(){
-    const PAW = '<svg viewBox="0 0 24 24" fill="currentColor"><ellipse cx="12" cy="15.5" rx="5.2" ry="4.3"/><ellipse cx="5.5" cy="10.5" rx="2.1" ry="2.8"/><ellipse cx="9.5" cy="6.8" rx="2.1" ry="2.9"/><ellipse cx="14.5" cy="6.8" rx="2.1" ry="2.9"/><ellipse cx="18.5" cy="10.5" rx="2.1" ry="2.8"/></svg>';
+    const PAW = '<svg viewBox="0 0 24 24"><ellipse cx="12" cy="13" rx="8.5" ry="6.6" fill="#f1c248" transform="rotate(-22 12 13)"/><ellipse cx="10.5" cy="11" rx="4.5" ry="3" fill="#f8db82" transform="rotate(-22 12 13)" opacity="0.7"/><path d="M18.5 6.2 C20.6 4.3 22.4 5.4 21.2 8.2 C19.2 8.6 18.4 7.6 18.5 6.2 Z" fill="#6aa07a"/></svg>';
     function spawn(x, y) {
       const paw = document.createElement('div');
       paw.className = 'paw';
