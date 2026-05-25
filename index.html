@@ -169,14 +169,13 @@
   body.dusk .sky-toggle .icon-moon { display: block; }
   body.dusk .sky-toggle { color: var(--gold); }
 
-  /* ===== Lemon paw-print trail (the cat walks with your cursor) ===== */
-  .paw-trail {
+  /* ===== Beyond cursor trails (each page leaves its own motif) ===== */
+  .trail-mark {
     position: fixed;
     width: 19px; height: 19px;
     margin: -9.5px 0 0 -9.5px;
     pointer-events: none;
     z-index: 9998;
-    color: #d27a3f;
     opacity: 0;
     animation: pawStep 1.15s ease forwards;
   }
@@ -2809,29 +2808,47 @@
     });
   })();
 
-  // ===== Lemon paw-print trail — footprints follow your cursor on Lemon's page =====
+  // ===== Beyond cursor trails — each page leaves its own motif following the cursor =====
   (function(){
-    const page = document.getElementById('cats');
-    if (!page) return;
     const PAW = '<svg viewBox="0 0 24 24" fill="currentColor"><ellipse cx="12" cy="15.5" rx="5" ry="4.2"/><ellipse cx="6" cy="10.6" rx="2" ry="2.7"/><ellipse cx="10" cy="7.3" rx="2" ry="2.8"/><ellipse cx="14" cy="7.3" rx="2" ry="2.8"/><ellipse cx="18" cy="10.6" rx="2" ry="2.7"/></svg>';
-    let lastX = 0, lastY = 0, started = false, side = 1;
-    page.addEventListener('mousemove', function(e){
-      if (!started) { lastX = e.clientX; lastY = e.clientY; started = true; return; }
-      const dx = e.clientX - lastX, dy = e.clientY - lastY;
-      const dist = Math.hypot(dx, dy);
-      if (dist < 62) return;
-      const ang = Math.atan2(dy, dx) * 180 / Math.PI + 90;     // paw faces direction of travel
-      const off = (ang - 90) * Math.PI / 180;
-      const ox = Math.cos(off) * 7 * side, oy = Math.sin(off) * 7 * side; // alternate left/right footfall
-      const paw = document.createElement('div');
-      paw.className = 'paw-trail';
-      paw.style.left = (e.clientX + ox) + 'px';
-      paw.style.top = (e.clientY + oy) + 'px';
-      paw.style.setProperty('--rot', ang + 'deg');
-      paw.innerHTML = PAW;
-      document.body.appendChild(paw);
-      setTimeout(function(){ paw.remove(); }, 1200);
-      lastX = e.clientX; lastY = e.clientY; side *= -1;
+    const PLANE = '<svg viewBox="0 0 28 28" fill="currentColor"><path d="M25 4 L3 13 L12 15.5 L14.5 24 L18 14.5 Z"/></svg>';
+    const CLOVER = '<svg viewBox="0 0 28 28" fill="currentColor"><g><path d="M14 14 C9 9 9.2 4.6 12 4.9 C13.3 5.1 14 6.5 14 7.5 C14 6.5 14.7 5.1 16 4.9 C18.8 4.6 19 9 14 14 Z" transform="rotate(45 14 14)"/><path d="M14 14 C9 9 9.2 4.6 12 4.9 C13.3 5.1 14 6.5 14 7.5 C14 6.5 14.7 5.1 16 4.9 C18.8 4.6 19 9 14 14 Z" transform="rotate(135 14 14)"/><path d="M14 14 C9 9 9.2 4.6 12 4.9 C13.3 5.1 14 6.5 14 7.5 C14 6.5 14.7 5.1 16 4.9 C18.8 4.6 19 9 14 14 Z" transform="rotate(225 14 14)"/><path d="M14 14 C9 9 9.2 4.6 12 4.9 C13.3 5.1 14 6.5 14 7.5 C14 6.5 14.7 5.1 16 4.9 C18.8 4.6 19 9 14 14 Z" transform="rotate(315 14 14)"/></g></svg>';
+    const NOTE = '<svg viewBox="0 0 28 28" fill="currentColor"><ellipse cx="10.5" cy="20" rx="4.6" ry="3.5"/><path d="M13.6 19.5 L13.6 6 L15.4 6 L15.4 19.5 Z"/><path d="M15.4 6 C19.2 7 21 10 19.4 13.6 C20.6 9.6 18.2 8 15.4 9.4 Z"/></svg>';
+    const PAGES = {
+      cats:     { svg: PAW,    color: '#d27a3f', dir: true  },
+      trips:    { svg: PLANE,  color: '#4f7e9c', dir: true  },
+      offclock: { svg: CLOVER, color: '#5f9a5c', dir: false },
+      music:    { svg: NOTE,   color: '#7d6ba8', dir: false }
+    };
+    Object.keys(PAGES).forEach(function(id){
+      const page = document.getElementById(id);
+      if (!page) return;
+      const cfg = PAGES[id];
+      let lastX = 0, lastY = 0, started = false, side = 1;
+      page.addEventListener('mousemove', function(e){
+        if (!started) { lastX = e.clientX; lastY = e.clientY; started = true; return; }
+        const dx = e.clientX - lastX, dy = e.clientY - lastY;
+        if (Math.hypot(dx, dy) < 62) return;
+        const ang = Math.atan2(dy, dx) * 180 / Math.PI + 90;
+        let ox = 0, oy = 0, rot;
+        if (cfg.dir) {
+          const off = (ang - 90) * Math.PI / 180;
+          ox = Math.cos(off) * 7 * side; oy = Math.sin(off) * 7 * side;
+          rot = ang;
+        } else {
+          rot = Math.random() * 24 - 12;
+        }
+        const m = document.createElement('div');
+        m.className = 'trail-mark';
+        m.style.left = (e.clientX + ox) + 'px';
+        m.style.top = (e.clientY + oy) + 'px';
+        m.style.color = cfg.color;
+        m.style.setProperty('--rot', rot + 'deg');
+        m.innerHTML = cfg.svg;
+        document.body.appendChild(m);
+        setTimeout(function(){ m.remove(); }, 1200);
+        lastX = e.clientX; lastY = e.clientY; side *= -1;
+      });
     });
   })();
 
