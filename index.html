@@ -932,6 +932,7 @@
     line-height: 1.75;
     margin-bottom: 14px;
   }
+  .research-desc a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
   .research-tags { display: flex; flex-wrap: wrap; gap: 6px; }
   .tag {
     font-family: var(--sans);
@@ -1185,6 +1186,22 @@
     color: var(--accent);
     margin-right: 6px;
   }
+  .pub-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .pub-link {
+    font-family: var(--sans);
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    padding: 4px 11px;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+  }
+  .pub-link:hover { background: var(--accent); color: #ffffff; }
+  .teaching-approach { margin-bottom: 52px; }
   .pub-status {
     font-family: var(--sans);
     font-size: 10.5px;
@@ -1906,8 +1923,20 @@
         </div>
         <ul class="news-list">
           <li class="news-item">
+            <span class="news-date">DEC 2026</span>
+            <span class="news-text"><strong>AI Stroke Triage and Mechanical Thrombectomy</strong> to be presented at the Asian Workshop on Econometrics and Health Economics.</span>
+          </li>
+          <li class="news-item">
             <span class="news-date">OCT 2026</span>
-            <span class="news-text"><strong>AI Stroke Triage and Mechanical Thrombectomy</strong> selected for the 3rd Annual Washington Health Economics Symposium in Washington, DC.</span>
+            <span class="news-text"><strong>Prescription Denials for GLP-1 Receptor Agonists</strong> published in <em>Health Affairs Scholar</em>.</span>
+          </li>
+          <li class="news-item">
+            <span class="news-date">OCT 2026</span>
+            <span class="news-text">Invited talk at the University of Massachusetts Amherst.</span>
+          </li>
+          <li class="news-item">
+            <span class="news-date">OCT 2026</span>
+            <span class="news-text"><strong>AI Stroke Triage and Mechanical Thrombectomy</strong> presented at the 3rd Annual Washington Health Economics Symposium in Washington, DC.</span>
           </li>
           <li class="news-item">
             <span class="news-date">SEP 2026</span>
@@ -1915,7 +1944,7 @@
           </li>
           <li class="news-item">
             <span class="news-date">2026</span>
-            <span class="news-text"><strong>Social Needs Screening and Subsequent Acute Care Utilization</strong> accepted for publication.</span>
+            <span class="news-text"><strong>Social Needs Screening and Subsequent Acute Care Utilization</strong> published in <em>Journal of General Internal Medicine</em>.</span>
           </li>
           <li class="news-item">
             <span class="news-date">2026</span>
@@ -2019,8 +2048,8 @@
       <span class="label">Research</span>
       <span class="stroke"></span>
     </div>
-    <h2 class="page-title">Four areas I keep returning to.</h2>
-    <p class="page-subtitle">One thread runs through all of it: how the design of insurance coverage decides who gets care &#8212; and who keeps it.</p>
+    <h2 class="page-title">Three questions, one thread.</h2>
+    <p class="page-subtitle">How coverage and payment policies set by public and private insurers shape patients&#8217; access to high-value treatments, and firms&#8217; incentives to bring new ones to market.</p>
 
     <div class="research-list">
       <div class="research-item">
@@ -2029,12 +2058,12 @@
           <svg width="32" height="32"><use href="#ico-pharma"/></svg>
         </div>
         <div>
-          <h3 class="research-title">Insurance benefit design and medication access</h3>
-          <p class="research-desc">The core of my program. Coverage rules, cost sharing, formulary placement, and prior authorization create incentives for plans and for patients &#8212; and those incentives determine who starts an effective medication and who stays on it. Current work follows GLP-1 receptor agonists and SGLT2 inhibitors through denial, appeal, and the coverage transitions people move across.</p>
+          <h3 class="research-title">Prescription drug coverage, markets, and innovation</h3>
+          <p class="research-desc">How insurers&#8217; coverage decisions affect patients&#8217; access to high-value drugs, and how demand and competition affect firms&#8217; incentives to develop new ones. My dissertation modeled antibiotic use in which today&#8217;s consumption raises resistance and the cost of treating future patients: competition among manufacturers increases use, while insurers&#8217; restrictions can offset part of that cost (<em>Economics &amp; Human Biology</em>, 2026). For GLP-1 receptor agonists, I found that 7.9% of first GLP-1 prescription claims were denied, denial was more than twice as common under Medicaid as under commercial coverage, and only about one third of patients with a denied claim obtained a paid fill within 90 days (<em>Health Affairs Scholar</em>, 2026). Ongoing work follows GLP-1 users as they move from commercial coverage into Medicare, examines what happened after four states ended Medicaid coverage of GLP-1s for obesity in 2026, and asks whether demand from cancer care creates incentives for antibiotic innovation.</p>
           <div class="research-tags">
-            <span class="tag">Value-based insurance design</span>
-            <span class="tag">Prior authorization</span>
-            <span class="tag">Medication adherence</span>
+            <span class="tag">GLP-1 access</span>
+            <span class="tag">Prior authorization &amp; denials</span>
+            <span class="tag">Antibiotic resistance &amp; innovation</span>
           </div>
         </div>
       </div>
@@ -2044,11 +2073,11 @@
           <svg width="32" height="32"><use href="#ico-medicare"/></svg>
         </div>
         <div>
-          <h3 class="research-title">Medicare Advantage, special needs plans, and dual eligibility</h3>
-          <p class="research-desc">How the structure of Medicare Advantage &#8212; and of plans tailored to a condition or an eligibility category &#8212; shapes utilization, quality, and access for beneficiaries with complex needs. Using 20% Medicare samples, I compare FIDE, HIDE, and coordination-only D-SNPs against look-alike plans, non-SNP MA, and traditional fee-for-service.</p>
+          <h3 class="research-title">Insurance design for people with complex chronic conditions</h3>
+          <p class="research-desc">More than half of Medicare beneficiaries are now in Medicare Advantage, and a growing share are in special needs plans that can tailor benefits and care management to a defined population. I ask whether these plans improve care for the people they serve, and which design features matter most. As part of an NIMH-funded R01, I study how integrated dual eligible special needs plans affect acute care use and medication adherence among people enrolled in both Medicare and Medicaid with serious mental illness. My current focus is chronic condition special needs plans (C-SNPs), which can align formularies, cost sharing, and care management with conditions such as type 2 diabetes: whether enrollment improves initiation of and adherence to cardiorenal-metabolic therapies, who benefits most, and which benefit designs make the difference.</p>
           <div class="research-tags">
-            <span class="tag">D-SNP integration</span>
-            <span class="tag">Plan design</span>
+            <span class="tag">Medicare Advantage</span>
+            <span class="tag">Special needs plans</span>
             <span class="tag">Dual eligibles</span>
           </div>
         </div>
@@ -2056,30 +2085,30 @@
       <div class="research-item">
         <div class="research-icon">
           <span class="research-icon-num">03</span>
-          <svg width="32" height="32"><use href="#ico-markets"/></svg>
+          <svg width="32" height="32"><use href="#ico-ml"/></svg>
         </div>
         <div>
-          <h3 class="research-title">Pharmaceutical markets, prescribing, and payment</h3>
-          <p class="research-desc">Theoretical models of how drug prices, entry, and market structure shape antibiotic consumption and resistance, alongside empirical work on how regulatory and payment signals change practice &#8212; FDA black box warnings and prescribing to older adults, and the billing, denial, and pricing of newly coded technologies.</p>
+          <h3 class="research-title">Coverage, payment, and adoption of new medical technology</h3>
+          <p class="research-desc">AI-enabled tools can speed diagnosis and extend specialist expertise, but whether patients benefit depends partly on how insurers pay for them. Most evidence comes from single health systems and measures how fast patients are treated, not whether their care changes. Using national multi-payer claims from 2,828 facilities, Lucy Xiaolu Wang and I find that adopting AI stroke triage software raised the share of ischemic stroke patients treated with mechanical thrombectomy by 23 percent (<a href="papers/Jia_Wang_AI_Stroke_Triage_WP.pdf" target="_blank" rel="noopener">working paper</a>). I also study how newly coded technologies, such as 3D-printed anatomic models and surgical guides, are billed, denied, and priced, and I am documenting how Medicare pays for each AI-enabled service to learn how payment policy shapes which hospitals adopt new technology and which patients gain access to it.</p>
           <div class="research-tags">
-            <span class="tag">Industrial organization</span>
-            <span class="tag">Antibiotic resistance</span>
-            <span class="tag">Coverage &amp; payment</span>
+            <span class="tag">AI in health care</span>
+            <span class="tag">Technology adoption</span>
+            <span class="tag">Medicare payment</span>
           </div>
         </div>
       </div>
       <div class="research-item">
         <div class="research-icon">
           <span class="research-icon-num">04</span>
-          <svg width="32" height="32"><use href="#ico-ml"/></svg>
+          <svg width="32" height="32"><use href="#ico-markets"/></svg>
         </div>
         <div>
-          <h3 class="research-title">Access and continuity for people whose care is fragmented</h3>
-          <p class="research-desc">Where coverage, social circumstance, and workforce meet: unmet social needs and later acute care use in a large safety-net system, patient trajectories after hospice live discharge, the supply of home care workers relative to the population living with functional limitation, and follow-up care after an adverse pregnancy outcome.</p>
+          <h3 class="research-title">Working across disciplines</h3>
+          <p class="research-desc">Economics is the framework; collaboration keeps the questions grounded. Clinicians help me choose outcomes that matter to patients and understand what claims data can and cannot show about older adults with several chronic conditions. I have published with clinicians in nephrology, endocrinology, and geriatric emergency medicine, including a study of how the FDA&#8217;s boxed warnings on fluoroquinolones affected prescribing to older adults, and with a large safety-net health system on how unmet social needs relate to later acute care use. I also designed a survey experiment with a cardiac surgeon on how older patients weigh survival against physical function after emergency aortic surgery.</p>
           <div class="research-tags">
-            <span class="tag">Care transitions</span>
-            <span class="tag">Safety net</span>
-            <span class="tag">Long-term services &amp; supports</span>
+            <span class="tag">Health services research</span>
+            <span class="tag">Older adults</span>
+            <span class="tag">Causal inference</span>
           </div>
         </div>
       </div>
@@ -2094,19 +2123,40 @@
       <span class="stroke"></span>
     </div>
     <h2 class="page-title">Papers and working drafts.</h2>
-    <p class="page-subtitle">Published, under review, and in progress.</p>
+    <p class="page-subtitle">Published, under review, and in progress. Where a version can be shared, the full text is one click away.</p>
 
     <div class="pub-section">
       <h3 class="pub-section-title">
-        <span class="label">Published &amp; Forthcoming</span>
-        <span class="count">/ 05</span>
+        <span class="label">Peer-Reviewed Publications</span>
+        <span class="count">/ 09</span>
         <span class="stroke"></span>
       </h3>
       <div class="pub-item">
         <div class="pub-num">01</div>
         <div class="pub-content">
-          <h4 class="pub-title">Social Needs Screening and Subsequent Acute Care Utilization in a Large Safety-Net Health System: A Retrospective Cohort Study</h4>
-          <p class="pub-authors"><strong>Jia, M.</strong>*, Dong, H.* (joint first authors), Fiori, K., Adamson, E., Zhang, M., Tanner, D., Weeks, W.B., Speyer, P., Aerts, A., &amp; Zhang, Y.</p>
+          <h4 class="pub-title"><a href="papers/Jia_2026_GLP1_Denials_Health_Affairs_Scholar.pdf" target="_blank" rel="noopener">Prescription Denials for GLP-1 Receptor Agonists Across Commercial, Medicare, and Medicaid Coverage, 2018&#8211;2024</a></h4>
+          <p class="pub-authors"><strong>Jia, M.</strong>, Levy, J. F., McGinty, E. E., Tummalapalli, S., &amp; Zhang, Y. &#183; <em>Health Affairs Scholar</em></p>
+          <details class="pub-abstract">
+            <summary>Abstract</summary>
+            <div class="abstract-body">
+              <p><strong>Introduction.</strong> Access to GLP-1 receptor agonists (GLP-1 RAs) remains strongly shaped by payer coverage and utilization management. Patient-level evidence on GLP-1 RA denial across payer types is limited.</p>
+              <p><strong>Methods.</strong> Using a national multi-payer claims database capturing adjudication status of pharmacy claims, we examined GLP-1 RA prescription denial and whether individuals with an index denial subsequently obtained a paid fill from 2018 to 2024. The index claim was defined as each individual&#8217;s first observed GLP-1 RA claim. We estimated multivariable logistic regressions to examine factors associated with index-claim denial and the likelihood of receiving a paid fill within 90 days among individuals with a denied index claim.</p>
+              <p><strong>Results.</strong> Overall, 7.9% of individuals had a denied index GLP-1 RA claim, increasing from 4.0% (2018) to 9.6% (2022) before declining to 6.6% (2024). Denial was higher in Medicaid than in commercial coverage (12.6% vs 5.6%) and for obesity-indicated than diabetes-indicated brands (16.8% vs 6.3%). Among individuals with a denied index claim, 34.1% obtained a paid fill within 90 days, declining from 45.9% (2018) to 24.8% (2024).</p>
+              <p><strong>Conclusion.</strong> Denial was concentrated in Medicaid and obesity-indicated products, and most individuals with a denied index claim did not obtain a paid fill within 90 days.</p>
+            </div>
+          </details>
+          <div class="pub-links">
+            <a class="pub-link" href="papers/Jia_2026_GLP1_Denials_Health_Affairs_Scholar.pdf" target="_blank" rel="noopener">PDF</a>
+            <a class="pub-link" href="https://doi.org/10.1093/haschl/qxag284" target="_blank" rel="noopener">Journal</a>
+          </div>
+        </div>
+        <span class="pub-status">Published &#183; 2026</span>
+      </div>
+      <div class="pub-item">
+        <div class="pub-num">02</div>
+        <div class="pub-content">
+          <h4 class="pub-title"><a href="papers/Jia_Dong_2026_Social_Needs_JGIM.pdf" target="_blank" rel="noopener">Social Needs Screening and Subsequent Acute Care Utilization in a Large Safety-Net Health System: A Retrospective Cohort Study</a></h4>
+          <p class="pub-authors"><strong>Jia, M.</strong>*, Dong, H.*, Fiori, K., Adamson, E., Zhang, M., Tanner, D., Weeks, W. B., Speyer, P., Aerts, A., &amp; Zhang, Y. (*joint first authors) &#183; <em>Journal of General Internal Medicine</em></p>
           <details class="pub-abstract">
             <summary>Abstract</summary>
             <div class="abstract-body">
@@ -2118,13 +2168,17 @@
               <p><strong>Conclusions.</strong> In a safety-net setting, transportation barriers showed the strongest and most consistent associations with subsequent acute care use, suggesting targeted transportation support and care-navigation strategies may be critical components of social care interventions.</p>
             </div>
           </details>
+          <div class="pub-links">
+            <a class="pub-link" href="papers/Jia_Dong_2026_Social_Needs_JGIM.pdf" target="_blank" rel="noopener">PDF</a>
+            <a class="pub-link" href="https://doi.org/10.1007/s11606-026-10908-3" target="_blank" rel="noopener">Journal</a>
+          </div>
         </div>
-        <span class="pub-status">Accepted &#183; In press</span>
+        <span class="pub-status">Published &#183; 2026</span>
       </div>
       <div class="pub-item">
-        <div class="pub-num">02</div>
+        <div class="pub-num">03</div>
         <div class="pub-content">
-          <h4 class="pub-title">Antibiotic Resistance, Drug Prices, and Entry</h4>
+          <h4 class="pub-title"><a href="https://doi.org/10.1016/j.ehb.2026.101616" target="_blank" rel="noopener">Antibiotic Resistance, Drug Prices, and Entry</a></h4>
           <p class="pub-authors"><strong>Jia, M.</strong>, &amp; Ma, C.-T. A. &#183; <em>Economics &amp; Human Biology</em>, 62, 101616</p>
           <details class="pub-abstract">
             <summary>Abstract</summary>
@@ -2133,31 +2187,58 @@
               <p>Facing a potential entrant, an incumbent may consider entry deterrence and accommodation. To deter entry, the incumbent reduces current sales to lower future cost, which alleviates antibiotic resistance. Entry accommodation gives rise to two countervailing effects: sharing the market weakens the incumbent's incentive to internalize the cost effect, raising production and resistance; but a lower future cost raises profit, leading the incumbent to reduce production and mitigate resistance.</p>
             </div>
           </details>
-          <p class="pub-presented"><span class="pp-label">Presented</span>American Society of Health Economists (ASHEcon) 2025 &#183; International Health Economics Association (iHEA) 2025 &#183; American Economic Association / Allied Social Science Associations (AEA/ASSA) 2025 &#183; Chinese Economists Society (CES) 2025 North American Annual Conference</p>
-        </div>
-        <span class="pub-status">Published &#183; 2026</span>
-      </div>
-      <div class="pub-item">
-        <div class="pub-num">03</div>
-        <div class="pub-content">
-          <h4 class="pub-title"><a href="https://www.sciencedirect.com/science/article/pii/S0749379726002278" target="_blank" rel="noopener">A Machine Learning Approach to Prioritize Place-Based Prevention to Address Cardiovascular Disease Burden in New York City</a></h4>
-          <p class="pub-authors">Li, H., <strong>Jia, M.</strong>, Adamson, E., Tanner, D., Weeks, W.B., Aerts, A., &amp; Zhang, Y. &#183; <em>American Journal of Preventive Medicine</em></p>
+          <p class="pub-presented"><span class="pp-label">Presented</span>American Society of Health Economists (ASHEcon) 2025 &#183; International Health Economics Association (iHEA) 2025 &#183; Allied Social Science Associations (ASSA) 2025 &#183; Chinese Economists Society (CES) 2025 North America Annual Conference</p>
+          <div class="pub-links">
+            <a class="pub-link" href="https://doi.org/10.1016/j.ehb.2026.101616" target="_blank" rel="noopener">Journal</a>
+          </div>
         </div>
         <span class="pub-status">Published &#183; 2026</span>
       </div>
       <div class="pub-item">
         <div class="pub-num">04</div>
         <div class="pub-content">
-          <h4 class="pub-title"><a href="https://www.cambridge.org/core/journals/antimicrobial-stewardship-and-healthcare-epidemiology/article/fluoroquinolone-prescribing-to-older-adults-following-fda-boxed-warnings-a-comparative-analysis/4D295A4ECEEE5832AAA95D759C769509" target="_blank" rel="noopener">Fluoroquinolone Prescribing to Older Adults Following FDA Black Box Warnings: A Comparative Analysis</a></h4>
-          <p class="pub-authors"><strong>Jia, M.</strong>, Flory, J., McGinty, E.E., Rosen, T., &amp; Zhang, Y. &#183; <em>Antimicrobial Stewardship &amp; Healthcare Epidemiology</em>, 6(1), e125</p>
+          <h4 class="pub-title"><a href="https://doi.org/10.1016/j.amepre.2026.108484" target="_blank" rel="noopener">A Machine Learning Approach to Prioritize Place-Based Prevention to Address Cardiovascular Disease Burden in New York City</a></h4>
+          <p class="pub-authors">Li, H., <strong>Jia, M.</strong>, Adamson, E., Tanner, D., Weeks, W. B., Aerts, A., &amp; Zhang, Y. &#183; <em>American Journal of Preventive Medicine</em>, 71(5), 108484</p>
         </div>
         <span class="pub-status">Published &#183; 2026</span>
       </div>
       <div class="pub-item">
         <div class="pub-num">05</div>
         <div class="pub-content">
-          <h4 class="pub-title"><a href="https://learning-analytics.info/index.php/JLA/article/view/4676" target="_blank" rel="noopener">Online Work Habits and Academic Performance</a></h4>
-          <p class="pub-authors"><strong>Jia, M.</strong>, &amp; Dvorak, T. &#183; <em>Journal of Learning Analytics</em>, 3(3), 318&#8211;330</p>
+          <h4 class="pub-title"><a href="https://doi.org/10.1017/ash.2026.10399" target="_blank" rel="noopener">Fluoroquinolone Prescribing to Older Adults Following FDA Boxed Warnings: A Comparative Analysis</a></h4>
+          <p class="pub-authors"><strong>Jia, M.</strong>, Flory, J., McGinty, E. E., Rosen, T., &amp; Zhang, Y. &#183; <em>Antimicrobial Stewardship &amp; Healthcare Epidemiology</em>, 6(1), e125</p>
+        </div>
+        <span class="pub-status">Published &#183; 2026</span>
+      </div>
+      <div class="pub-item">
+        <div class="pub-num">06</div>
+        <div class="pub-content">
+          <h4 class="pub-title"><a href="https://doi.org/10.1080/00036846.2025.2465842" target="_blank" rel="noopener">Are Cryptocurrencies Good Investment Options During Economic Downturns? A Perspective from Individual Financial Satisfaction</a></h4>
+          <p class="pub-authors">Bai, Z., <strong>Jia, M.</strong>, &amp; Zheng, S. &#183; <em>Applied Economics</em>, 58(7), 1307&#8211;1324</p>
+        </div>
+        <span class="pub-status">Published &#183; 2026</span>
+      </div>
+      <div class="pub-item">
+        <div class="pub-num">07</div>
+        <div class="pub-content">
+          <h4 class="pub-title"><a href="https://doi.org/10.1108/IJBM-12-2024-0759" target="_blank" rel="noopener">Financial Constraints and Cryptocurrency Investment: The Moderating Role of Financial Education</a></h4>
+          <p class="pub-authors">Bai, Z., Zheng, S., &amp; <strong>Jia, M.</strong> &#183; <em>International Journal of Bank Marketing</em>, 43(10), 2256&#8211;2279</p>
+        </div>
+        <span class="pub-status">Published &#183; 2025</span>
+      </div>
+      <div class="pub-item">
+        <div class="pub-num">08</div>
+        <div class="pub-content">
+          <h4 class="pub-title"><a href="https://doi.org/10.1108/IJBM-07-2024-0418" target="_blank" rel="noopener">Cryptocurrencies as a New Trigger for Credit Card Misuse During Economic Downturns</a></h4>
+          <p class="pub-authors">Bai, Z., Wang, P., &amp; <strong>Jia, M.</strong> &#183; <em>International Journal of Bank Marketing</em>, 43(4), 827&#8211;848</p>
+        </div>
+        <span class="pub-status">Published &#183; 2025</span>
+      </div>
+      <div class="pub-item">
+        <div class="pub-num">09</div>
+        <div class="pub-content">
+          <h4 class="pub-title"><a href="https://doi.org/10.18608/jla.2016.33.15" target="_blank" rel="noopener">Online Work Habits and Academic Performance</a></h4>
+          <p class="pub-authors">Dvorak, T., &amp; <strong>Jia, M.</strong> &#183; <em>Journal of Learning Analytics</em>, 3(3), 318&#8211;330</p>
         </div>
         <span class="pub-status">Published &#183; 2016</span>
       </div>
@@ -2166,77 +2247,79 @@
     <div class="pub-section">
       <h3 class="pub-section-title">
         <span class="label">Under Review</span>
-        <span class="count">/ 07</span>
+        <span class="count">/ 05</span>
         <span class="stroke"></span>
       </h3>
       <div class="pub-item">
         <div class="pub-num">01</div>
         <div class="pub-content">
-          <h4 class="pub-title">Mechanical Thrombectomy Use After Hospital Adoption of AI Stroke Triage: A National Multi-Payer Claims Study</h4>
-          <p class="pub-authors"><strong>Jia, M.</strong>*, &amp; Wang, L.X.* (joint first authors)</p>
-          <p class="pub-presented"><span class="pp-label">Selected</span>3rd Annual Washington Health Economics Symposium (HEAL Network) &#183; Washington, DC, October 2026</p>
+          <h4 class="pub-title">Changes in GLP-1 Receptor Agonist Use at the Commercial-to-Medicare Transition</h4>
+          <p class="pub-authors"><strong>Jia, M.</strong>, Maini, L., &amp; Kakani, P.</p>
         </div>
-        <span class="pub-status">Under Review &#183; 2026</span>
+        <span class="pub-status">Under Review</span>
       </div>
       <div class="pub-item">
         <div class="pub-num">02</div>
         <div class="pub-content">
-          <h4 class="pub-title">Changes in GLP-1 Receptor Agonist Use at the Commercial-to-Medicare Transition</h4>
-          <p class="pub-authors"><strong>Jia, M.</strong>, Maini, L., &amp; Kakani, P. &#183; Research letter</p>
+          <h4 class="pub-title">Access to GLP-1 Prescriptions After an Initial Coverage Denial in Commercial, Medicaid, and Medicare Advantage Plans, 2018&#8211;2023</h4>
+          <p class="pub-authors"><strong>Jia, M.</strong>, Kashyap, S., McGinty, E. E., &amp; Zhang, Y.</p>
         </div>
-        <span class="pub-status">Under Review &#183; 2026</span>
+        <span class="pub-status">Under Review</span>
       </div>
       <div class="pub-item">
         <div class="pub-num">03</div>
         <div class="pub-content">
-          <h4 class="pub-title">Access to GLP-1 Prescriptions After an Initial Coverage Denial in Commercial, Medicaid, and Medicare Advantage Plans, 2018&#8211;2023</h4>
-          <p class="pub-authors"><strong>Jia, M.</strong>, et al.</p>
+          <h4 class="pub-title">Association Between Enrollment in Integrated Special Needs Plans and Acute Care Utilization Among Dual Eligibles with Serious Mental Illnesses</h4>
+          <p class="pub-authors">Zhang, Y., <strong>Jia, M.</strong>, Daumit, G. L., Zhang, M., &amp; McGinty, E. E.</p>
+          <p class="pub-presented"><span class="pp-label">Presented</span>American Society of Health Economists (ASHEcon) 2026</p>
         </div>
-        <span class="pub-status">Under Review &#183; 2026</span>
+        <span class="pub-status">Under Review</span>
       </div>
       <div class="pub-item">
         <div class="pub-num">04</div>
         <div class="pub-content">
           <h4 class="pub-title">Billing, Denial, and Prices for 3D-Printed Anatomic Models and Surgical Guides, 2019&#8211;2024</h4>
-          <p class="pub-authors">Wang, L.X.*, <strong>Jia, M.</strong>* (joint first authors), &amp; Ghogawala, Z.</p>
+          <p class="pub-authors">Wang, L. X.*, <strong>Jia, M.</strong>*, &amp; Ghogawala, Z. (*joint first authors)</p>
         </div>
-        <span class="pub-status">Under Review &#183; 2026</span>
+        <span class="pub-status">Under Review</span>
       </div>
       <div class="pub-item">
         <div class="pub-num">05</div>
         <div class="pub-content">
-          <h4 class="pub-title">Association between Enrollment in Integrated Special Needs Plans and Acute Care Utilization among Dual Eligibles with Serious Mental Illnesses</h4>
-          <p class="pub-authors">Zhang, Y., <strong>Jia, M.</strong>, Daumit, G.L., Zhang, M., &amp; McGinty, E.E.</p>
-          <p class="pub-presented"><span class="pp-label">Presented</span>American Society of Health Economists (ASHEcon) 2026</p>
+          <h4 class="pub-title">Medicare Advantage Supplemental Benefit Offerings and Serious Mental Illness</h4>
+          <p class="pub-authors"><strong>Jia, M.</strong>, Wang, Y., Zhang, M., Zhang, Y., &amp; McGinty, E. E.</p>
         </div>
-        <span class="pub-status">Under Review &#183; 2026</span>
-      </div>
-      <div class="pub-item">
-        <div class="pub-num">06</div>
-        <div class="pub-content">
-          <h4 class="pub-title">Prescription Denials For GLP-1 Receptor Agonists Across Commercial, Medicare, and Medicaid Coverage, 2018&#8211;2024</h4>
-          <p class="pub-authors"><strong>Jia, M.</strong>, et al.</p>
-        </div>
-        <span class="pub-status">Revised &amp; Resubmitted</span>
-      </div>
-      <div class="pub-item">
-        <div class="pub-num">07</div>
-        <div class="pub-content">
-          <h4 class="pub-title">Medicare Advantage Supplemental Benefits and Serious Mental Illness</h4>
-          <p class="pub-authors"><strong>Jia, M.</strong>, et al.</p>
-        </div>
-        <span class="pub-status">Under Review &#183; 2026</span>
+        <span class="pub-status">Under Review</span>
       </div>
     </div>
 
     <div class="pub-section">
       <h3 class="pub-section-title">
         <span class="label">Working Papers</span>
-        <span class="count">/ 04</span>
+        <span class="count">/ 05</span>
         <span class="stroke"></span>
       </h3>
       <div class="pub-item">
         <div class="pub-num">01</div>
+        <div class="pub-content">
+          <h4 class="pub-title"><a href="papers/Jia_Wang_AI_Stroke_Triage_WP.pdf" target="_blank" rel="noopener">New Medical Technology and Clinical Practice: Evidence from AI Stroke Triage</a></h4>
+          <p class="pub-authors"><strong>Jia, M.</strong>, &amp; Wang, L. X. (equal contribution, alphabetical order)</p>
+          <details class="pub-abstract">
+            <summary>Abstract</summary>
+            <div class="abstract-body">
+              <p>AI stroke-triage software aims to accelerate recognition and care coordination in ischemic stroke. Mechanical thrombectomy is highly effective, but its use depends on rapidly identifying eligible patients. Using national multi-payer claims covering 420,294 ischemic stroke admissions at 2,828 facilities from 2017 through 2023, we estimate the effect of facility-level adoption on the thrombectomy rate with a staggered-adoption difference-in-differences design. Adoption raises the thrombectomy rate by 1.08 percentage points, or 23 percent relative to the 4.73 percent pre-period baseline. The increase is immediate, stable, and concentrated at facilities with existing but not high baseline use. It is not driven by more scanning, as evidenced by imaging utilization rate patterns around adoption. We find no changes in thrombolysis, transfer, or hemorrhagic-stroke treatment rates. Results are robust to modern causal inference estimators, alternative exposure definitions, and different control groups. The pattern is consistent with faster recognition within established stroke programs rather than increased scanning or treatment substitution.</p>
+            </div>
+          </details>
+          <p class="pub-presented"><span class="pp-label">Presented</span>Washington Health Economics Symposium, October 2026 &#183; Asian Workshop on Econometrics and Health Economics, December 2026 (scheduled)</p>
+          <p class="pub-presented"><span class="pp-label">Under review</span>A clinical version, &#8220;Mechanical Thrombectomy Use After Hospital Adoption of AI Stroke Triage: A National Multi-Payer Claims Study&#8221;</p>
+          <div class="pub-links">
+            <a class="pub-link" href="papers/Jia_Wang_AI_Stroke_Triage_WP.pdf" target="_blank" rel="noopener">PDF</a>
+          </div>
+        </div>
+        <span class="pub-status">Working Paper &#183; 2026</span>
+      </div>
+      <div class="pub-item">
+        <div class="pub-num">02</div>
         <div class="pub-content">
           <h4 class="pub-title">Characterizing Patient Trajectories after Hospice Live Discharge among Medicare Beneficiaries</h4>
           <p class="pub-authors">Li, H., <strong>Jia, M.</strong>, &amp; Zhang, Y.</p>
@@ -2253,7 +2336,7 @@
         <span class="pub-status">2026</span>
       </div>
       <div class="pub-item">
-        <div class="pub-num">02</div>
+        <div class="pub-num">03</div>
         <div class="pub-content">
           <h4 class="pub-title">Addressing the Externalities of Medicine Overconsumption</h4>
           <p class="pub-authors"><strong>Jia, M.</strong></p>
@@ -2268,7 +2351,7 @@
         <span class="pub-status">2026</span>
       </div>
       <div class="pub-item">
-        <div class="pub-num">03</div>
+        <div class="pub-num">04</div>
         <div class="pub-content">
           <h4 class="pub-title">The Effectiveness of the Health System Reform on Affecting Self-Medication in China</h4>
           <p class="pub-authors"><strong>Jia, M.</strong></p>
@@ -2283,7 +2366,7 @@
         <span class="pub-status">2025</span>
       </div>
       <div class="pub-item">
-        <div class="pub-num">04</div>
+        <div class="pub-num">05</div>
         <div class="pub-content">
           <h4 class="pub-title">Informal Gift Exchange in the Public Health Sector</h4>
           <p class="pub-authors"><strong>Jia, M.</strong></p>
@@ -2308,27 +2391,56 @@
       <span class="stroke"></span>
     </div>
     <h2 class="page-title">In the classroom.</h2>
-    <p class="page-subtitle">From PhD seminars to master's labs, at Boston University and Weill Cornell Medicine.</p>
+    <p class="page-subtitle">Undergraduate, master&#8217;s, MBA, and doctoral students at Boston University and Weill Cornell Medicine.</p>
+
+    <div class="working-grid teaching-approach">
+      <div class="working-card">
+        <span class="corner-mark">/01</span>
+        <div class="working-status"><span class="live-dot"></span>Approach</div>
+        <h3 class="working-title">Start from a real decision</h3>
+        <p class="working-desc">A patient, an insurance plan, a hospital, or a firm facing a choice gives students a reason to care about the model. Each topic opens with a familiar case before the theory.</p>
+      </div>
+      <div class="working-card">
+        <span class="corner-mark">/02</span>
+        <div class="working-status"><span class="live-dot"></span>Approach</div>
+        <h3 class="working-title">Show where methods fail</h3>
+        <p class="working-desc">At PNC Bank, my job was to find where a model would break before the bank relied on it. In one of my machine learning labs, students fit a model that predicts well on training data, watch it deteriorate on new data, and trace the failure to its source.</p>
+      </div>
+      <div class="working-card">
+        <span class="corner-mark">/03</span>
+        <div class="working-status"><span class="live-dot"></span>Approach</div>
+        <h3 class="working-title">Teach toward the next step</h3>
+        <p class="working-desc">Each course is one step in a longer path. I learn where each student wants to go, whether a doctoral program or an analyst role, and help them prepare for it.</p>
+      </div>
+      <div class="working-card">
+        <span class="corner-mark">/04</span>
+        <div class="working-status"><span class="live-dot"></span>Mentoring</div>
+        <h3 class="working-title">Research mentoring</h3>
+        <p class="working-desc">As a postdoc I have supervised seven research assistants preparing for doctoral study, each with a plan running from literature review through manuscript. One built the analytic file for our Medicare Advantage supplemental benefits paper and is now a coauthor. I also mentor a Boston University economics doctoral student on our antibiotics project.</p>
+      </div>
+    </div>
 
     <div class="pub-section">
       <h3 class="pub-section-title">
-        <span class="label">Weill Cornell Medicine · Postdoctoral</span>
+        <span class="label">Weill Cornell Medicine &#183; Postdoctoral</span>
         <span class="count">/ 02</span>
         <span class="stroke"></span>
       </h3>
       <div class="pub-item">
         <div class="pub-num">01</div>
         <div class="pub-content">
-          <h4 class="pub-title">Machine Learning Applications in Health Policy and Research</h4>
-          <p class="pub-authors">Lab Lecturer · Master's level</p>
+          <h4 class="pub-title">Applied Machine Learning in Health Policy &amp; Economics</h4>
+          <p class="pub-authors">Teaching Assistant &amp; Lab Lecturer &#183; Master&#8217;s, 30 students</p>
+          <p class="pub-presented">Built the lab component from scratch when the course launched in 2025: Python code and materials for every lab session, plus the homework, term project, and final presentations. For 2026, revised it for a larger cohort, adding introductory Python sessions and a regression lab before students move to machine learning.</p>
         </div>
         <span class="pub-status">Summer 2025 &amp; 2026</span>
       </div>
       <div class="pub-item">
         <div class="pub-num">02</div>
         <div class="pub-content">
-          <h4 class="pub-title">Applications in Econometrics and Data Analysis</h4>
-          <p class="pub-authors">Teaching Assistant · Master's level</p>
+          <h4 class="pub-title">Application in Econometrics and Data Analysis</h4>
+          <p class="pub-authors">Teaching Assistant &amp; Lab Lecturer &#183; Master&#8217;s, 60 students</p>
+          <p class="pub-presented">Helped students move from a research question to an estimable model and a defensible interpretation; led the in-class Stata exercises and graded homework, quizzes, and exams.</p>
         </div>
         <span class="pub-status">Summer 2026</span>
       </div>
@@ -2344,7 +2456,7 @@
         <div class="pub-num">01</div>
         <div class="pub-content">
           <h4 class="pub-title">Applied Machine Learning in Health Economics</h4>
-          <p class="pub-authors">Health Economics (PhD) · Boston University</p>
+          <p class="pub-authors">Health Economics (PhD) &#183; Department of Economics, Boston University</p>
         </div>
         <span class="pub-status">Fall 2025</span>
       </div>
@@ -2352,7 +2464,7 @@
         <div class="pub-num">02</div>
         <div class="pub-content">
           <h4 class="pub-title">Applying Behavioral Economics to Public Health Policy</h4>
-          <p class="pub-authors">Introduction to Health Services Research (Master's) · Weill Cornell Medicine</p>
+          <p class="pub-authors">Introduction to Health Services Research (Master&#8217;s) &#183; Weill Cornell Medicine</p>
         </div>
         <span class="pub-status">Fall 2025</span>
       </div>
@@ -2360,51 +2472,53 @@
 
     <div class="pub-section">
       <h3 class="pub-section-title">
-        <span class="label">Boston University · Doctoral</span>
+        <span class="label">Boston University &#183; Doctoral</span>
         <span class="count">/ 05</span>
         <span class="stroke"></span>
       </h3>
       <div class="pub-item">
         <div class="pub-num">01</div>
         <div class="pub-content">
-          <h4 class="pub-title">QM717 · Data Analysis for Managerial Decision-Making</h4>
-          <p class="pub-authors">Teaching Assistant · Graduate</p>
+          <h4 class="pub-title">EC102 &#183; Introductory Macroeconomic Analysis</h4>
+          <p class="pub-authors">Led discussion sections &#183; Undergraduate, 120 students</p>
         </div>
-        <span class="pub-status">Fall 2021</span>
+        <span class="pub-status">Fall 2017 – Spring 2022</span>
       </div>
       <div class="pub-item">
         <div class="pub-num">02</div>
         <div class="pub-content">
-          <h4 class="pub-title">EC581 · Health Economics</h4>
-          <p class="pub-authors">Teaching Assistant · Graduate</p>
-        </div>
-        <span class="pub-status">Spring 2019 – Spring 2020</span>
-      </div>
-      <div class="pub-item">
-        <div class="pub-num">03</div>
-        <div class="pub-content">
-          <h4 class="pub-title">EC571 · Energy and Environmental Economics</h4>
-          <p class="pub-authors">Teaching Assistant · Graduate</p>
-        </div>
-        <span class="pub-status">Fall 2018</span>
-      </div>
-      <div class="pub-item">
-        <div class="pub-num">04</div>
-        <div class="pub-content">
-          <h4 class="pub-title">EC387 · Introduction to Health Economics</h4>
-          <p class="pub-authors">Teaching Assistant · Undergraduate</p>
+          <h4 class="pub-title">EC387 &#183; Introduction to Health Economics</h4>
+          <p class="pub-authors">Led discussion sections &#183; Undergraduate, 40 students</p>
         </div>
         <span class="pub-status">Spring 2019 – Spring 2022</span>
       </div>
       <div class="pub-item">
+        <div class="pub-num">03</div>
+        <div class="pub-content">
+          <h4 class="pub-title">EC581 &#183; Health Economics</h4>
+          <p class="pub-authors">Teaching Assistant &#183; Master&#8217;s, 40 students</p>
+        </div>
+        <span class="pub-status">Spring 2019 – Spring 2020</span>
+      </div>
+      <div class="pub-item">
+        <div class="pub-num">04</div>
+        <div class="pub-content">
+          <h4 class="pub-title">EC571 &#183; Energy and Environmental Economics</h4>
+          <p class="pub-authors">Teaching Assistant &#183; Master&#8217;s, 40 students</p>
+        </div>
+        <span class="pub-status">Fall 2018</span>
+      </div>
+      <div class="pub-item">
         <div class="pub-num">05</div>
         <div class="pub-content">
-          <h4 class="pub-title">EC102 · Introduction to Macroeconomics</h4>
-          <p class="pub-authors">Teaching Assistant · Undergraduate</p>
+          <h4 class="pub-title">QM717 &#183; Data Analysis for Managerial Decision-Making</h4>
+          <p class="pub-authors">Teaching Assistant, Questrom School of Business &#183; MBA, 40 students</p>
         </div>
-        <span class="pub-status">Fall 2017 – Spring 2022</span>
+        <span class="pub-status">Fall 2021</span>
       </div>
     </div>
+
+    <p class="contact-note">Prepared to teach health and business economics, health policy and insurance design, applied econometrics and causal inference, business analytics, and machine learning with Python, at the undergraduate and graduate levels.</p>
   </div>
 
   <!-- CURRENT -->
@@ -2434,13 +2548,13 @@
         <span class="corner-mark">/03</span>
         <div class="working-status"><span class="live-dot"></span>Active &#183; Ongoing</div>
         <h3 class="working-title">GLP-1 access: coverage, denial, and continuity</h3>
-        <p class="working-desc">A connected set of studies on what stands between a GLP-1 prescription and a filled one &#8212; how often claims are denied and for whom, what happens to people after an initial denial, and how use, out-of-pocket cost, and continuity of therapy change when someone&#8217;s coverage changes.</p>
+        <p class="working-desc">A connected set of studies on what stands between a GLP-1 prescription and a filled one &#8212; how often claims are denied and for whom, what happens to people after an initial denial, how use changes when people move from commercial coverage into Medicare, and what patients did after four states ended Medicaid coverage of GLP-1s for obesity in 2026.</p>
       </div>
       <div class="working-card">
         <span class="corner-mark">/04</span>
         <div class="working-status"><span class="live-dot"></span>Active &#183; Technology &amp; coverage</div>
         <h3 class="working-title">Coverage and adoption of AI-enabled medical technology</h3>
-        <p class="working-desc">How payment and coverage rules shape whether new AI-enabled and digitally produced technologies reach patients &#8212; following adoption of AI triage software through to the treatments patients actually receive, and examining how newly coded technologies are billed, denied, and priced while their payment status is still unsettled.</p>
+        <p class="working-desc">How payment and coverage rules shape whether new AI-enabled and digitally produced technologies reach patients &#8212; following adoption of AI triage software through to the treatments patients actually receive, and examining how newly coded technologies are billed, denied, and priced while their payment status is still unsettled. Next: documenting how Medicare pays for each AI-enabled service and linking those rules to hospital adoption.</p>
       </div>
       <div class="working-card">
         <span class="corner-mark">/05</span>
@@ -2456,15 +2570,15 @@
       </div>
       <div class="working-card">
         <span class="corner-mark">/07</span>
-        <div class="working-status"><span class="live-dot"></span>Ongoing &#183; Theory</div>
-        <h3 class="working-title">Antibiotic resistance, drug prices, and entry &#8212; theoretical modeling</h3>
-        <p class="working-desc">Industrial-organization theory of how drug prices, market structure, and entry shape antibiotic consumption and resistance &#8212; extending the framework behind my <em>Economics &amp; Human Biology</em> paper toward dynamic competition and the levers that balance resistance mitigation against innovation incentives.</p>
+        <div class="working-status"><span class="live-dot"></span>Ongoing &#183; Economics of innovation</div>
+        <h3 class="working-title">Cancer care and antibiotic innovation</h3>
+        <p class="working-desc">With Albert Ma and Rena Conti, combining Medicare claims, IQVIA sales, and Biomedtracker pipeline data to ask whether growing demand from cancer therapy creates incentives to develop new antibiotics &#8212; extending the framework of my <em>Economics &amp; Human Biology</em> paper on how prices, market structure, and entry shape antibiotic use and resistance.</p>
       </div>
       <div class="working-card">
         <span class="corner-mark">/08</span>
         <div class="working-status"><span class="live-dot"></span>Methods</div>
         <h3 class="working-title">Methods I keep coming back to</h3>
-        <p class="working-desc">Difference-in-differences with staggered adoption, instrumental variables for plan choice, and how to draw causal inferences from claims data when enrollment in any given plan is anything but random.</p>
+        <p class="working-desc">Difference-in-differences with staggered adoption, event studies with inverse probability weighting, instrumental variables for plan choice, and causal machine learning for how effects vary across people and markets &#8212; all in service of drawing causal inferences from claims data when enrollment in any given plan is anything but random.</p>
       </div>
     </div>
   </div>
